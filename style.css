@@ -1,0 +1,209 @@
+/**
+ * Name: 
+ * StudentId: 
+ * CourseCode: 
+ * Course: Software Engineering Project
+ * 
+ */
+
+
+/**  GENERAL STYLING PAGE FOR ALL PAGES
+ * * CONTRIBUTED BY ONYINYE AND OLIVIA
+ * 
+ * 
+ * 
+ */
+
+body{
+    background-color:whitesmoke;
+    
+}
+main{
+    background-color: whitesmoke;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 100px;
+}
+h1 h2 {
+    font-family: 'Jomhuria', cursive;
+}
+
+footer{
+    background-color: rgb(243, 237, 237);
+    padding-bottom: 100px;
+}
+
+header{
+    background-color: rgb(243, 237, 237);
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+
+}
+
+column {
+
+    float: left;
+
+    padding: 20px;
+
+}
+form {
+    background-color: #d4e3fc;
+
+    border-radius: 50px;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#left {
+    width:40%;
+float: left;
+    text-align: center;
+    margin-right: 2.5%;
+    margin-left: 7.5%;
+}
+#right {
+    width:40%;
+    margin-right: 7.5%;
+    margin-left: 2.5%;
+    float: right;
+}    
+
+a.button {
+    border-radius: 2px;
+
+    text-align: center;
+    font-family: arial;
+    background-color: cornflowerblue;
+    color: white;
+    width:202px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none ;
+    margin-bottom: 2px;
+}    
+
+.register {
+    background-color: white;
+    border-radius: 50px;
+}
+
+.submit {
+    background-color: white;
+    border-radius: 50px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#login {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+#chat{
+    width: 100%;
+    min-width: 250px;
+    max-width: 650px;
+    /*min-height: 500px;*/
+background-color: lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+    overflow :auto;
+    height: 400px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+
+}
+#send{
+
+    background-color: dimgrey;
+    font-size: medium;
+    color: white;
+
+    padding: 4px 8px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+}
+
+#file{
+
+    font-size: medium;
+    color: dimgrey;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+
+
+.newchat{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+
+    border-radius: 10px;
+    background-color: #d4e3fc;
+    padding:5px;
+
+}
+#newchat{
+
+width: 100%;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+justify-content: center;
+ padding:25px;
+
+}
+#box{
+    background-color: white;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding:20px;
+    border-radius: 25px;
+}
+#box p{
+    color: dimgrey;
+    margin: 10px;
+    float: bottom;
+}
+
+#username {
+    float:left;
+    font-weight: bold;
+    color: blue;
+
+}
+#time {
+    float:right;
+    color: cornflowerblue;
+    margin-bottom: 3px;
+
+}
+#discussion {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: cornflowerblue;
+}

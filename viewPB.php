@@ -22,6 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>view pb</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <header>
@@ -29,9 +30,9 @@
     </header>
 
     <main>
-        <form action="" method="GET">
-            <input type="submit" name="viewpbi" id="viewpbi" value="view PBI">
-        </form> 
+        <form action="" method="GET" id="viewpbi2">
+            <input type="submit" name="viewpbi" id="viewpbi" value="VIEW PBI">
+        </form>
         
         <div class="vertical-menu">
 
@@ -51,7 +52,7 @@
         if($resultCheck > 0) {
             while($row = mysqli_fetch_assoc($result)){
                 print "<div>";
-                print "<ul>";
+                print "<ul id='list'>";
                 print "<li>";
                 print "<div class='list-item' draggable='true' ondragstart = 'dragStart()event'>".$row['product_item']."</div>";
                 print "</li>";

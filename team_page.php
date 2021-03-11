@@ -43,32 +43,32 @@
         <!-- Image and text -->
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">
-            <img src="assets/collabo_logo.jpeg" width="30" height="30" class="d-inline-block align-center" alt="collaborations logo"><b class="logoName">
-            Collaborations...</b></a> 
+                <img src="assets/collabo_logo.jpeg" width="30" height="30" class="d-inline-block align-center" alt="collaborations logo"><b class="logoName">
+                    Collaborations...</b></a>
 
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                  <a class="nav-link active" href="index.html">Home</a>
+                    <a class="nav-link active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="home.php">My Page</a>
+                    <a class="nav-link disabled" href="team_page.php">My Page</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pBacklog.php">Backlog Refinement</a>
+                    <a class="nav-link" href="pBacklog.php">Product Backlog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Sprint Planning</a>
+                    <a class="nav-link" href="#">Sprint Planning</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Daily Sprint</a>
+                    <a class="nav-link" href="#">Daily Sprint</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Retrospective.php">Sprint Retrospective</a>
+                    <a class="nav-link" href="Retrospective.php">Sprint Retrospective</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Chat.php">Chat</a>
                 </li>
-              </ul>
+            </ul>
         </nav>
 
 
@@ -112,7 +112,7 @@ $sql = "SELECT * FROM team_users;";
   <!-- enter product backlogs-->
         <div class="row">
             <div class="col">
-                <form action="" method="POST">
+                <form action="" method="POST" id="teamform">
                     <label for="">Enter your Product Backlogs: </label><br>
                     <input type="text" name="bitem" id="bitem"><br>
                     <input type="submit" name="enter" id="enter" value="ENTER"><br>

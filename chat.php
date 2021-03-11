@@ -53,7 +53,7 @@ include ("dbconnect.php");
                 <a class="nav-link" href="home.php">My Page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pBacklog.php">Backlog Refinement</a>
+                <a class="nav-link" href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Sprint Planning</a>

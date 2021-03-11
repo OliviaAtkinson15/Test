@@ -1,0 +1,52 @@
+body{
+    background-color:whitesmoke;
+    
+}
+main{
+    background-color: whitesmoke;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 100px;
+}
+h1 h2 {
+    font-family: 'Jomhuria', cursive;
+}
+
+footer{
+    background-color: rgb(243, 237, 237);
+    padding-bottom: 100px;
+}
+
+header{
+    background-color: rgb(243, 237, 237);
+}
+a.button {
+    border-radius: 2px;
+    text-align: center;
+    font-family: arial;
+    background-color: cornflowerblue;
+    color: white;
+    width:202px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none ;
+    margin-bottom: 2px;
+
+}
+#list{
+    list-style: none;
+
+}
+
+#viewpbi{
+margin-left: 150px;
+    background-color: dimgrey;
+    color: white;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: medium;
+}
+
+

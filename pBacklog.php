@@ -40,24 +40,32 @@ include("dbconnect.php");
         <!-- Image and text -->
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">
-            <img src="assets/collabo_logo.jpeg" width="30" height="30" class="d-inline-block align-center" alt="collaborations logo"><b class="logoName">
-            Collaborations...</b></a> 
-            <h4>Backlog Refinement</h4>
+                <img src="assets/collabo_logo.jpeg" width="30" height="30" class="d-inline-block align-center" alt="collaborations logo"><b class="logoName">
+                    Collaborations...</b></a>
 
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                  <a class="nav-link active" href="index.html">Home</a>
+                    <a class="nav-link active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="team_page.php">Team Page</a>
+                    <a class="nav-link" href="home.php">My Page</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="home.php">My Page</a>
+                    <a class="nav-link disabled" href="pBacklog.php">Product Backlog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Sign out</a>
+                    <a class="nav-link" href="#">Sprint Planning</a>
                 </li>
-              </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Daily Sprint</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Retrospective.php">Sprint Retrospective</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Chat.php">Chat</a>
+                </li>
+            </ul>
         </nav>
 
 
@@ -65,12 +73,17 @@ include("dbconnect.php");
     </header>
     
     <main class="container">
+
         <div class="row">
+
            <div class="col-md-4 col-sm-12">
-                <?php
-                include ("viewPB.php");
-                ?>
+
+                  <?php
+               include ("viewPB.php");
+               ?>
+          
             </div>
+
     
             
                     
@@ -189,7 +202,7 @@ include("dbconnect.php");
             //fetch the result
             //check
             $resultCheck = mysqli_num_rows($result);
-    print "<h2>Product Backlog Items</h2>";
+    print "<h3 class='PBIheader'>Product Backlog Items</h3>";
         if($resultCheck > 0) {
 
             while($row = mysqli_fetch_assoc($result)){
@@ -197,7 +210,7 @@ include("dbconnect.php");
                 print "<div class=''>";
                 print "<div class='card'>";
                 //print "<p><input type=hidden name=id value=<?php echo $row['product_backlog_id']; ?//>><p>";
-                print "<h2 class='bitem'>".$pbi."</h2>";
+                print "<h3 class='bitem'>".$pbi."</h3>";
                 print "<p class='userstory'> '<em>".$row['product_task']."</em> '</p>";
                 print "<p class='criteria'><b>Acceptance Criteria:</b> ".$row['criteria']."</p>";
                 print "<p class='effort'>".$row['effort']."</p>";

@@ -49,3 +49,11 @@
     overflow :auto;
     height: 400px;
 }
+.PBIheader{
+    padding: 10px;
+    color: cornflowerblue;
+
+}
+#teamform{
+    justify-content: center;
+}

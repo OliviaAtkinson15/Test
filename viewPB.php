@@ -30,9 +30,9 @@
     </header>
 
     <main>
-        <form action="" method="GET" id="viewpbi2">
+       <!--/* <form action="" method="GET" id="viewpbi2">
             <input type="submit" name="viewpbi" id="viewpbi" value="VIEW PBI">
-        </form>
+        </form>*/-->
         
         <div class="vertical-menu">
 
@@ -40,7 +40,7 @@
                 //view pbi's
 
         //include ("dbconnect.php");
-        if(isset($_GET['viewpbi'])){//if user clicks view show 
+        //if(isset($_GET['viewpbi'])){//if user clicks view show
             $sql = "SELECT * FROM product_backlog;";
 
             $result = mysqli_query($db, $sql); //execute SQL query
@@ -62,7 +62,7 @@
                 
             }
             
-        }
+
 
         }//$result->close();
             ?>

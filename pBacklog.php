@@ -48,7 +48,10 @@ include("dbconnect.php");
                     <a class="nav-link active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="home.php">My Page</a>
+                    <a class="nav-link" href="my_page.php">My Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team_page.php">Team Page</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="pBacklog.php">Product Backlog</a>
@@ -169,18 +172,7 @@ include("dbconnect.php");
                 </form>
             </div> 
             
-            <!--<div class="col-md-4 col-sm-12">
 
-                <?php
-                   // include ("RefinedPBI.php");
-                ?>
-            </div> 
-
-            <div class="col-md-3 col-sm-12" id="chat">
-                <?php
-                //include ("chat.php");
-                ?>
-            </div>-->
                    
 
 
@@ -219,28 +211,17 @@ include("dbconnect.php");
 
                 print "</div>";
                 print "</div><br>";
-/*
-                while($row = mysqli_fetch_assoc($result)){
-                     $pbi= $row['product_item'];
-                    echo "<h2 class='bitem'>".$pbi."</h2>";
-                    echo "<tr>";
-                    echo "<td>".$row['product_task']."</td>";
-                    echo "<td>".$row['criteria']."</td><br>";
-                    echo "<td>".$row['effort']."</td><br>";
-                    echo "<td><a href='update.php?id=".$row['product_backlog_id']."'>Updatee</a></td>";
-                    echo "<td><a href='delete.php?id=".$row['product_backlog_id']."'>Delete</a></td>";
-                    echo "</tr>";
-*/
+
                 }// end while loop
-                        
-                //echo $row['product_task']. "<br>";
 
 
-            //print "</div>";
+
+
+
         }
 
 
-        //$result->close();
+        $result->close();
     ?>
 
                     </div>   

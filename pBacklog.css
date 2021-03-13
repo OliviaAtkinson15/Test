@@ -20,13 +20,18 @@
     max-width: 300px;
     background-color: #d4e3fc;
     text-align: center;
-    font-family: arial;
+
 }
 /*float columns side by side */
 .column{
     float: left;
-    width: 20%;
-    padding: 0 10px;
+    width: 40%;
+    background-color: lightgray;
+    padding: 10px;
+    margin-left: 40px;
+    border-radius: 20px;
+
+
 }
 /* creating a draggable  */
 .list-item{
@@ -55,5 +60,20 @@
 
 }
 #teamform{
-    justify-content: center;
+
+    width: 90%;
+    float: right;
+    background-color: brown;
+
 }
+.col{
+    background-color: blue;
+
+}
+#teamform, #bitem{
+
+margin-right: auto;
+    margin-left: auto;
+}
+
+

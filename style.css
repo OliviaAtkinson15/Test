@@ -42,30 +42,35 @@ header{
     content: "";
     display: table;
     clear: both;
-
-
 }
-
-column {
-
-    float: left;
-
-    padding: 20px;
-
-}
-form {
+form{
     background-color: #d4e3fc;
-
     border-radius: 50px;
-    width: 50%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-below: 10px;
 }
+#list{
+    list-style: none;
+
+}
+
+#viewpbi{
+    margin-left: 150px;
+    background-color: dimgrey;
+    color: white;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: medium;
+}
+
 
 #left {
     width:40%;

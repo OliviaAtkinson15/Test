@@ -20,6 +20,8 @@
     max-width: 300px;
     background-color: #d4e3fc;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 /*float columns side by side */
@@ -59,12 +61,15 @@
 .PBIheader{
     padding: 10px;
     color: cornflowerblue;
+    text-align: center;
 
 }
 #teamform{
 
     width: 90%;
     float: right;
+
+   padding-left: 80px;
 }
 
 

@@ -62,10 +62,7 @@ include ("dbconnect.php");
                 <a class="nav-link" href="#">Daily Sprint</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Retrospective.php">Sprint Retrospective</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="Chat.php">Chat</a>
+                <a class="nav-link disabled" href="Chat.php">Sprint Retrospective</a>
             </li>
         </ul>
     </nav>
@@ -82,7 +79,7 @@ include ("dbconnect.php");
 
 
 <main class="container">
-    <h3 id="discussion">Discussion Forum</h3>
+    <h3 id="discussion">Sprint Retrospective</h3>
 <div id="chat">
 
 <div id="content">

@@ -1,4 +1,4 @@
-/**
+<!--/**
  * Name: OLIVIA
  * StudentId: 
  * CourseCode: 
@@ -12,7 +12,7 @@
  * 
  * 
  * 
- */
+ */-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,23 +69,41 @@ if (isset($_POST['register'])) { /* If the user clicked sign up then continue wi
     $useremail3 = $_POST["email3"];
     $useremail4 = $_POST["email4"];
 
+    $sql = "SELECT * FROM team_users WHERE (email_address= '$email')";
 
-    $insert = $db->query("INSERT INTO team_users (FirstName, LastName, email_address, password, team_name) VALUES ('$fname', '$lname', '$email', '$password','$teamname')");
-    $insert1 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail1', '$password', '$teamname')");
+    $res = mysqli_query($db, $sql);
 
-    if($useremail2 != NULL) {
-        $insert2 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail2', '$password','$teamname')");
-    }
-    if($useremail3 != NULL) {
-        $insert3 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail3', '$password','$teamname')");
-    }
-    if($useremail4 != NULL) {
-        $insert4 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail4', '$password','$teamname')");
-    }
-    if ($insert && $insert1) {
-        echo "<h2>Group created successfully.</h2>";
+    if (mysqli_num_rows($res) > 0) {
+
+        echo "an account with this email address already exists";
+
+        //$row = mysqli_fetch_assoc($res);
+        //if ($email == isset ($row['email'])) {
+        //  echo "an account with this email address already exists";
+
+        //}
+
     } else {
-        echo "<h2>Unable to create group.</h2>";
+        //insert into database
+
+
+        $insert = $db->query("INSERT INTO team_users (FirstName, LastName, email_address, password, team_name) VALUES ('$fname', '$lname', '$email', '$password','$teamname')");
+        $insert1 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail1', '$password', '$teamname')");
+
+        if ($useremail2 != NULL) {
+            $insert2 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail2', '$password','$teamname')");
+        }
+        if ($useremail3 != NULL) {
+            $insert3 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail3', '$password','$teamname')");
+        }
+        if ($useremail4 != NULL) {
+            $insert4 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail4', '$password','$teamname')");
+        }
+        if ($insert && $insert1) {
+            echo "<h2>Group created successfully.</h2>";
+        } else {
+            echo "<h2>Unable to create group.</h2>";
+        }
     }
 }
 
@@ -94,7 +112,7 @@ if (isset($_POST['register'])) { /* If the user clicked sign up then continue wi
 $db->close();
 
 ?>
-<a href="Login.php" class="backtologin">Back to Login</a>
+<br><a href="Login.php" class="backtologin">Back to Login</a>
 </main>
 
 <footer class="container-fluid">

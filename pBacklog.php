@@ -63,11 +63,9 @@ include("dbconnect.php");
                     <a class="nav-link" href="#">Daily Sprint</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Retrospective.php">Sprint Retrospective</a>
+                    <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Chat.php">Chat</a>
-                </li>
+
             </ul>
         </nav>
 
@@ -84,96 +82,95 @@ include("dbconnect.php");
                   <?php
                include ("viewPB.php");
                ?>
+                  <?php
+                  // send details to sql
+
+
+$message = "";
+
+                  if(isset($_POST["save"])){
+                      //if user clicked enter continue
+
+                      /*
+                                      //check if any data is empty
+                                      if(empty($_POST["bitem"]) || empty($_POST["userstory"]) || empty($_POST["criteria"]) || empty($_POST["effort"]))
+                                      {  //echo a code
+                                          echo "enter a task first";
+                                          //header('Location: signUp.php?signup=empty');
+                                          //exit();
+                                      }else
+                                      { *///asign a variable to the input
+                      $pitem = $_POST["bitem"];
+                      $userstory = $_POST["userstory"];
+                      $criteria = $_POST["criteria"];
+                      $effort = $_POST["effort"];
+
+
+
+
+                      //check if task exist
+                      $sql=mysqli_query($db,"SELECT * FROM product_backlog where (product_item='$pitem')");
+
+                      //$res=mysqli_query($db,$sql);
+
+                      if (mysqli_num_rows($sql) > 0) {
+
+                          $row = mysqli_fetch_assoc($sql);
+                          //if($pitem==isset($row['bitem']))
+                          //{
+                          //echo "this task exist";
+                          //header('Location: signUp.php?signup=email');
+                          //exit();
+
+
+
+
+                          //update the database
+                          $sql1 = "UPDATE product_backlog SET product_task = '$userstory', criteria = '$criteria', effort= '$effort' WHERE product_item = '$pitem'";
+
+                          if ($db->query($sql1) === TRUE) {
+                              //header("location: login.php?signup=success");
+                              //exit();
+                              //header("Location: pBacklog.php");
+                              $message= "New record UPDATED successfully";
+                          } else {
+                              $message= "Error: " . $sql1 . "<br>" . $db->error;
+                              //header('Location: signUp.php?signup=failed');
+                              //exit();
+                          }
+
+                          //$db->close();
+                      }else{
+                          $message= "Product Backlog does not exist";
+                      }
+
+
+
+                  } //$res->close();
+                  ?>
           
             </div>
 
-    
-            
-                    
-
-    <?php
-    // send details to sql
-
-
-
-
-    if(isset($_POST["save"])){
-        //if user clicked enter continue
-    
-    
-    
-        //check if any data is empty
-        if(empty($_POST["bitem"]) || empty($_POST["userstory"]) || empty($_POST["criteria"]) || empty($_POST["effort"]))
-        {  //echo a code
-            echo "enter a task first";
-            //header('Location: signUp.php?signup=empty');
-            //exit();
-        }else
-        { //asign a variable to the input
-            $pitem = $_POST["bitem"];
-            $userstory = $_POST["userstory"];
-            $criteria = $_POST["criteria"];
-            $effort = $_POST["effort"];
-           
-
-            
-    
-            //check if task exist
-            $sql=mysqli_query($db,"SELECT * FROM product_backlog where (product_item='$pitem')");
-    
-            //$res=mysqli_query($db,$sql);
-    
-                if (mysqli_num_rows($sql) > 0) {
-                
-                $row = mysqli_fetch_assoc($sql);
-                    //if($pitem==isset($row['bitem']))
-                    //{
-                        //echo "this task exist";
-                        //header('Location: signUp.php?signup=email');
-                        //exit();
-
-                    
-                
-    
-                    //update the database
-                    $sql1 = "UPDATE product_backlog SET product_task = '$userstory', criteria = '$criteria', effort= '$effort' WHERE product_item = '$pitem'";
-    
-                    if ($db->query($sql1) === TRUE) {
-                        //header("location: login.php?signup=success");
-                        //exit();
-                        //header("Location: pBacklog.php");
-                        echo "New record UPDATED successfully";
-                    } else {
-                        echo "Error: " . $sql1 . "<br>" . $db->error;
-                        //header('Location: signUp.php?signup=failed');
-                        //exit();
-                    }
-            
-                    //$db->close();
-                }else{
-                    echo "<p>Product Backlog does not exist</p>";
-                }   
-                    
-    
-        }
-    } //$res->close();
-       ?>
             <div class="col-md-4 col-sm-12" id="scroll">
                 <form action="" method="POST">
                     <div class="card">
-                        
-                        <p class="backlogItem"><Label>Product Backlog Item</Label><br><input type="text" name="bitem" id="bitem" placeholder="login page"></p>
-                        <p class="userStory"><p><label for="">User story</label></p><textarea name="userstory" id="userstory" cols="20" rows="10" placeholder="as a user, i want to be able to log into the sytem using my credential"></textarea></p>
-                        <p class="criteria"><label for="">Acceptance Criteria</label><textarea  name = "criteria" id="criteria" cols="30" rows="10" placeholder="1.input a valid credential to the login boxes, the user should see a home page with user name displayed  2.input an invalid credentail the user should be refused entry and sent back to login page"></textarea></p><br>
-                        <p class="effort"><label for="">Effort</label><br><input type="text" name="effort" id="effort" placeholder="S,M,L,XL"></p><br>
+                        <?php
+                        print "<p>$message</p>";
+                        ?>
+
+                        <p class="backlogItem"><Label>Product Backlog Item</Label><br><input type="text" name="bitem" id="bitem" placeholder="login page "required></p>
+                        <p class="userStory"><p><label for="">User story</label></p><textarea name="userstory" id="userstory" cols="20" rows="10" placeholder="as a user, i want to be able to log into the sytem using my credential" required></textarea></p>
+                        <p class="criteria"><label for="">Acceptance Criteria</label><textarea  name = "criteria" id="criteria" cols="30" rows="10" placeholder="1.input a valid credential to the login boxes, the user should see a home page with user name displayed  2.input an invalid credentail the user should be refused entry and sent back to login page" required></textarea></p><br>
+                        <p class="effort"><label for="">Effort</label><br><input type="text" name="effort" id="effort" placeholder="S,M,L,XL" required></p><br>
                         <input type="submit" name="save" id="save" value="save PBI">
                     </div>
 
                 </form>
-            </div> 
-            
+            </div>
 
-                   
+
+
+
 
 
             <div class="col-md-4 col-sm-12">
@@ -206,7 +203,6 @@ include("dbconnect.php");
                 print "<p class='userstory'> '<em>".$row['product_task']."</em> '</p>";
                 print "<p class='criteria'><b>Acceptance Criteria:</b> ".$row['criteria']."</p>";
                 print "<p class='effort'>".$row['effort']."</p>";
-                print "<a href='update.php?id=".$row['product_backlog_id']."' class='button'>UPDATE</a><br>";
                 print "<a href='delete.php?id=".$row['product_backlog_id']."' class='button'>DELETE</a>";
 
                 print "</div>";

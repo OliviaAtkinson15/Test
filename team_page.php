@@ -67,10 +67,7 @@
                     <a class="nav-link" href="#">Daily Sprint</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Retrospective.php">Sprint Retrospective</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Chat.php">Chat</a>
+                    <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
                 </li>
             </ul>
         </nav>
@@ -89,12 +86,12 @@
     
 
     <?php
+    $sql = "SELECT * FROM team_users WHERE team_name = 'c'";
 
-$sql = "SELECT * FROM team_users;";
+    $result = mysqli_query($db, $sql); //execute SQL query
 
-        $result = mysqli_query($db, $sql); //execute SQL query
+    $resultCheck = mysqli_num_rows($result);
 
-        $resultCheck = mysqli_num_rows($result);
 
         if($resultCheck > 0) {
             while($row = mysqli_fetch_assoc($result)){
@@ -167,18 +164,15 @@ $sql = "SELECT * FROM team_users;";
                             $sql1 = "INSERT INTO product_backlog (product_item) VALUES ('$pitem')";
                 
                 
-                                if ($db->query($sql1) === TRUE) {
-                                    //header("location: login.php?signup=success");
-                                    //exit();
-                                    //header("Location: pBacklog.php");
-                                    //echo "New record created successfully";
-                                } else {
+                                if ($db->query($sql1) != TRUE) {
                                     echo "Error: " . $sql1 . "<br>" . $db->error;
                                     //header('Location: signUp.php?signup=failed');
                                     //exit();
+                                } else {
+
                                 }
                         
-                                $db->close();
+
                                 }
                                 
                                

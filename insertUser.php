@@ -83,8 +83,11 @@ if (isset($_POST['register'])) { /* If the user clicked sign up then continue wi
 
 
         $insert = $db->query("INSERT INTO team_users (FirstName, LastName, email_address, password, team_name) VALUES ('$fname', '$lname', '$email', '$password','$teamname')");
-        $insert1 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail1', '$password', '$teamname')");
 
+
+        if ($useremail1 != NULL) {
+            $insert1 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail1', '$password', '$teamname')");
+        }
         if ($useremail2 != NULL) {
             $insert2 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail2', '$password','$teamname')");
         }

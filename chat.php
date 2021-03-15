@@ -134,59 +134,69 @@ while($row = $result ->fetch_array()) {
         <TEXTAREA id="text" name="text" rows="3" cols="64" placeholder="..."></TEXTAREA><br>
         <input id="file" type="file" name="image">
         <input type="submit" id="send" name="send" value="send"><br>
-    </form>
+            <?php
+
+            if (isset($_POST['send'])) { /* If the user clicked login then continue with this */
+
+                // $email = $_POST["email"];
+                $text = $_POST["text"];
+
+
+                    if (!empty($_FILES["image"]["name"])) {
+                        $allowTypes = array('jpg', 'png', 'jpeg');
+                        if (in_array($fileType, $allowTypes)) {
+                            // Upload file to server
+                            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)) {
+                                // Insert image file name into database
+                                $insert = $db->query("INSERT into chat (user, text, image) VALUES ('$email', '$text', '$fileName')");
+
+                                if ($insert) {
+                                    header("Refresh:0");
+                                } else {
+                                    echo "Unable to send message.";
+                                }
+                            } else {
+                                echo "Error uploading your file.";
+                            }
+                        } else {
+                            echo 'Sorry, only JPG, JPEG or PNG files are allowed to upload.';
+                        }
+
+                    } else {
+                        $insert = $db->query("INSERT INTO chat (user, text) VALUES ('$email', '$text')");
+                        if ($insert) {
+                            header("Refresh:0");
+                        } else {
+                            echo "Unable to send message.";
+                        }
+                    }
+
+            }
+            ?>
+        </form>
     </div>
 
 </main>
+
 <?php
-
-if (isset($_POST['send'])) { /* If the user clicked login then continue with this */
-
-    // $email = $_POST["email"];
-    $text = $_POST["text"];
-
-if (!empty($row["image"]) || !empty($row["text"])) {
-    echo "You must enter a message or upload an image.";
-    } else {
-
-    if (!empty($_FILES["image"]["name"])) {
-        $allowTypes = array('jpg', 'png', 'jpeg');
-        if (in_array($fileType, $allowTypes)) {
-            // Upload file to server
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)) {
-                // Insert image file name into database
-                $insert = $db->query("INSERT into chat (user, text, image) VALUES ('$email', '$text', '$fileName')");
-
-                if ($insert) {
-                    header("Refresh:0");
-                } else {
-                    echo "Unable to send message.";
-                }
-            } else {
-                echo "Error uploading your file.";
-            }
-        } else {
-            echo 'Sorry, only JPG, JPEG or PNG files are allowed to upload.';
-        }
-
-    } else {
-        $insert = $db->query("INSERT INTO chat (user, text) VALUES ('$email', '$text')");
-        if ($insert) {
-            header("Refresh:0");
-        } else {
-            echo "Unable to send message.";
-        }
-    }
-}
-
-
-
-}
 $db->close();
 
 ?>
 
+<footer class="container-fluid">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">copyright &copy; collaborations...</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+        </li>
+    </ul>
 
-
+</footer>
+<body>
 </body>
 </html>

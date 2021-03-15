@@ -170,7 +170,7 @@ $message = "";
                         <p class="userStory"><p><label for="">User story</label></p><textarea name="userstory" id="userstory" cols="20" rows="10" placeholder="as a user, i want to be able to log into the sytem using my credential" required></textarea></p>
                         <p class="criteria"><label for="">Acceptance Criteria</label><textarea  name = "criteria" id="criteria" cols="30" rows="10" placeholder="1.input a valid credential to the login boxes, the user should see a home page with user name displayed  2.input an invalid credentail the user should be refused entry and sent back to login page" required></textarea></p><br>
                         <p class="effort"><label for="">Effort</label><br><input type="text" name="effort" id="effort" placeholder="S,M,L,XL" required></p><br>
-                        <input type="submit" name="save" id="save" value="save PBI">
+                        <input type="submit" name="save" id="save" value="Update PBI">
                     </div>
 
                 </form>

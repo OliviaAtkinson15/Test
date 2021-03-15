@@ -133,6 +133,8 @@ background-color: lightgray;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
+    flex-direction: column-reverse;
+    display: flex;
 
 }
 #send{
@@ -212,4 +214,12 @@ justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
     color: cornflowerblue;
+}
+#content
+{
+    height:580px;
+    overflow:auto;
+    flex-direction: column-reverse;
+    display: flex;
+
 }

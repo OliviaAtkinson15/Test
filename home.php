@@ -1,4 +1,4 @@
-/**
+<!--/**
  * Name: ILOANUGO ONYINYR
  * StudentId: 2009808
  * CourseCode: CMM 004
@@ -12,7 +12,7 @@
  * A USER CAN NAVIGATE TO THE TEAM PAGE FROM HERE.
  * 
  * 
- */
+ */-->
 
 <!DOCTYPE html>
 <html>
@@ -40,16 +40,21 @@
         $email = $_SESSION['email'];
         echo "<h5>$email</h5>";
         ?>
-
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link disabled" href="index.html">Home</a>
+                <a class="nav-link active" href="home.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="my_page.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pBacklog.php">Backlog Refinement</a>
+                <a class="nav-link disabled" href="try.php">Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Sprint Planning</a>
@@ -58,11 +63,9 @@
                 <a class="nav-link" href="#">Daily Sprint</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sprint Retrospective</a>
+                <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="retrospective.php">Chat</a>
-            </li>
+
         </ul>
     </nav>
 </header>

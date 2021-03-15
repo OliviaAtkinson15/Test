@@ -1,4 +1,4 @@
-/**
+<!--/**
  * Name: OLIVIA
  * StudentId: 
  * CourseCode: 
@@ -12,7 +12,7 @@
  * 
  * 
  * 
- */
+ */-->
 
 
 
@@ -39,9 +39,7 @@
                 Collaborations...</b></a>
 
         <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link " href="Login.php">Log In</a>
             </li>
@@ -75,10 +73,10 @@ if (isset($_POST['submit'])) { /* If the user clicked login then continue with t
     $insert2 = $db->query ("UPDATE team_users SET LastName='$lastname' WHERE email_address = '$email'");
     if ($insert && $insert2) {
         echo "<p>Details updated successfully.</p>";
-        header("location: index.html"); // Redirecting To another Page
+        header("location: home.php"); // Redirecting To another Page
     } else {
         echo "<p>Unable to enter details.</p>";
-        header("location: index.html"); // Redirecting To another Page
+        header("location: login.php"); // Redirecting To another Page
     }
 
 }

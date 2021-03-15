@@ -47,10 +47,16 @@ include ("dbconnect.php");
 
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
+                <a class="nav-link active" href="home.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="my_page.php">My Page</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="team_page.php">Team Page</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="try.php">Tasks</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="pBacklog.php">Product Backlog</a>
@@ -62,8 +68,9 @@ include ("dbconnect.php");
                 <a class="nav-link" href="#">Daily Sprint</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="Chat.php">Sprint Retrospective</a>
+                <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
             </li>
+
         </ul>
     </nav>
 

@@ -11,7 +11,7 @@ include("dbconnect.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks</title>
+    <title>Sprint Planning</title>
     <link rel="stylesheet" href="pBacklog.css">
     <link rel="stylesheet" href="task_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -28,30 +28,35 @@ include("dbconnect.php");
             <img src="assets/collabo_logo.jpeg" width="30" height="30" class="d-inline-block align-center" alt="collaborations logo"><b class="logoName">
                 Collaborations...</b></a>
 
+        <?php
+        session_start();
+        $email = $_SESSION['email'];
+        echo "<h5>$email</h5>";
+        ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link active" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="my_page.php">My Page</a>
+                <a class="nav-link" href="">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="try.php">Tasks</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sprint Planning</a>
+                <a class="nav-link disabled" href="try.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Daily Sprint</a>
+                <a class="nav-link" href="">Daily Sprint</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Logout</a>
             </li>
 
         </ul>
@@ -95,7 +100,7 @@ if (isset($_POST['delete'])) {
 
 
 <body>
-<h2>Task Page</h2>
+<h2>Sprint Planning</h2>
     <div>
 
         <form method="post">

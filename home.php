@@ -19,7 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>create group</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/style.css">
@@ -42,28 +42,28 @@
         ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" href="home.php">Home</a>
+                <a class="nav-link disabled" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="my_page.php">My Page</a>
+                <a class="nav-link" href="">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="try.php">Tasks</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sprint Planning</a>
+                <a class="nav-link" href="try.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Daily Sprint</a>
+                <a class="nav-link" href="">Daily Sprint</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Logout</a>
             </li>
 
         </ul>

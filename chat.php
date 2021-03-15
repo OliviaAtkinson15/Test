@@ -25,7 +25,7 @@ include ("dbconnect.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product backlog</title>
+    <title>Sprint Retrospective</title>
     <link rel="stylesheet" href="pBacklog.css">
     <link rel="stylesheet" href="style.css">
     <!-- bootstrap -->
@@ -44,31 +44,35 @@ include ("dbconnect.php");
         <a class="navbar-brand" href="#">
             <img src="assets/collabo_logo.jpeg" width="30" height="30" class="d-inline-block align-center" alt="collaborations logo"><b class="logoName">
                 Collaborations...</b></a>
-
+        <?php
+        session_start();
+        $email = $_SESSION['email'];
+        echo "<h5>$email</h5>";
+        ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link active" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="my_page.php">My Page</a>
+                <a class="nav-link" href="">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="try.php">Tasks</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sprint Planning</a>
+                <a class="nav-link" href="try.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Daily Sprint</a>
+                <a class="nav-link" href="">Daily Sprint</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
+                <a class="nav-link disabled" href="Chat.php">Sprint Retrospective</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Logout</a>
             </li>
 
         </ul>
@@ -99,7 +103,7 @@ $sql_query = "SELECT * FROM chat ORDER BY date_time DESC";
 $result = $db-> query($sql_query);
 
 // File upload path
-$targetDir = "/Applications/MAMP/untitled1/";
+$targetDir = "/Applications/MAMP/htdocs/Test/";
 $fileName = basename($_FILES["image"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
@@ -111,11 +115,13 @@ while($row = $result ->fetch_array()) {
     $date_time = $row ['date_time'];
     $user = $row ['user'];
 
-    if (!empty($row["image"])) {
-        Print '<div id="box"><h6 id="username">' . $user . '</h6><h6 id="time">' . $date_time . '</h6><p>' . $text . '</p><img src="' . $row["image"] . '" style="width:150px;"></div><br>';
-    } else {
-        Print '<div id="box"><h6 id="username">' . $user . '</h6><h6 id="time">' . $date_time . '</h6><p>' . $text . '</p></div><br>';
-    }
+
+        if (!empty($row["image"])) {
+            Print '<div id="box"><h6 id="username">' . $user . '</h6><h6 id="time">' . $date_time . '</h6><p>' . $text . '</p><img src="' . $row["image"] . '" style="width:150px;"></div><br>';
+        } else {
+            Print '<div id="box"><h6 id="username">' . $user . '</h6><h6 id="time">' . $date_time . '</h6><p>' . $text . '</p></div><br>';
+        }
+
 }
 
 ?>
@@ -139,7 +145,9 @@ if (isset($_POST['send'])) { /* If the user clicked login then continue with thi
     // $email = $_POST["email"];
     $text = $_POST["text"];
 
-
+if (!empty($row["image"]) || !empty($row["text"])) {
+    echo "You must enter a message or upload an image.";
+    } else {
 
     if (!empty($_FILES["image"]["name"])) {
         $allowTypes = array('jpg', 'png', 'jpeg');
@@ -161,7 +169,7 @@ if (isset($_POST['send'])) { /* If the user clicked login then continue with thi
             echo 'Sorry, only JPG, JPEG or PNG files are allowed to upload.';
         }
 
-    } else{
+    } else {
         $insert = $db->query("INSERT INTO chat (user, text) VALUES ('$email', '$text')");
         if ($insert) {
             header("Refresh:0");
@@ -169,6 +177,7 @@ if (isset($_POST['send'])) { /* If the user clicked login then continue with thi
             echo "Unable to send message.";
         }
     }
+}
 
 
 

@@ -1,4 +1,4 @@
-form {
+#task {
     width: 20%;
     margin-left: 100px;
     border-radius: 10px;
@@ -8,15 +8,15 @@ float: left;
     padding:50px;
 }
 
-.task_input {
+#task_input {
     width: 75%;
     height: 15px;
     padding: 10px;
     border: 2px solid #d4e3fc;
 }
-.add_btn {
+#add_btn {
     height: 39px;
-    background: #d4e3fc;
+    background: white;
     color: 	dimgrey;
     border: 2px dimgrey;
     border-radius: 5px;
@@ -34,13 +34,14 @@ padding: 20px;
     background-color: #d4e3fc;
     border-radius: 10px;
     table-border-color-dark: dimgrey;
+
 }
 th,td{
     border-collapse: collapse;
     padding-left: 30px;
    padding-top: 20px;
     padding-bottom: 20px;
-    text-align: center;
+    text-align: left;
     border: 1px dimgrey;
     border-collapse: collapse;
     height: 30px;
@@ -66,7 +67,7 @@ tr:hover {
     background: #E9E9E9;
 }
 
-.Tasks {
+#Tasks {
     text-align: left;
 }
 
@@ -77,4 +78,13 @@ h2{
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+#delete {
+    height: 39px;
+    background: white;
+    color: 	dimgrey;
+    border: 2px dimgrey;
+    border-radius: 5px;
+    padding: 5px 20px;
 }

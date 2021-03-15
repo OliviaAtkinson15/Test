@@ -103,7 +103,7 @@ if (isset($_POST['delete'])) {
 <h2>Sprint Planning</h2>
     <div>
 
-        <form method="post">
+        <form method="post" id="task">
             <?php if (isset($errors)) { ?>
                 <p><?php echo $errors; ?></p>
             <?php } ?>
@@ -146,7 +146,7 @@ if (isset($_POST['delete'])) {
                 <td>
                     <form method="POST">
                         <input type="hidden" name="id_to_delete" value="<?php echo $row['uid']?>">
-                        <input type="submit" name="delete" value="delete" >
+                        <input type="submit" id="delete" name="delete" value="delete" >
                     </form>
                 </td>
             </tr>

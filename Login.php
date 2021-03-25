@@ -77,8 +77,13 @@ if (isset($_POST['Login'])) { /* If the user clicked login then continue with th
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
         if(isset($row['FirstName'])) {
-            header("location: home.php"); // Redirecting To another Page
-        } else {
+            if ($email == "admin@rgu.ac.uk") {
+                header('Location: admin.php');
+            } else {
+                header('location: home.php');
+            }
+
+        }else {
             header("location: EnteringName.php"); // Redirecting To another Page
         }
     }
@@ -87,6 +92,8 @@ if (isset($_POST['Login'])) { /* If the user clicked login then continue with th
         }
 
 }
+
+
 
 session_start();
 $_SESSION['email'] = $email;

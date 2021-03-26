@@ -97,6 +97,9 @@ form{
     background-color: white;
     border-radius: 50px;
 }
-
+#lefttest{
+    width: 25%;
+    float: left;
+}
 
 

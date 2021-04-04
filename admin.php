@@ -36,6 +36,7 @@
             <img src="assets/collabo_logo.jpeg" width="30" height="30" class="d-inline-block align-center" alt="collaborations logo"><b class="logoName">
                 Collaborations...</b></a>
         <?php
+        include("dbconnect.php");
         session_start();
         $email = $_SESSION['email'];
         echo "<h5>$email</h5>";
@@ -51,12 +52,50 @@
         </ul>
     </nav>
 </header>
-<div id="lefttest">
+<div id="groupnames"
+<h3>Choose a group to assess</h3><br>
+
+<label for="groups">Group name:</label>
+
+<select name="groups" id="groups">
 <?php
 
-include ("pBacklog.php");
+
+
+$sql= $db->query("SELECT team_name FROM team_users WHERE NOT (team_name = 'admin') group by team_name");
+
+$array = [];
+while($row = mysqli_fetch_array($sql))
+{
+    $array[] = $row;
+}
+
+foreach($array as $item){
+
 ?>
+    <option value="<?php echo $item['team_name'] ?>"><?php echo $item['team_name'] ?></option>
+    <?php
+    }
+if(isset($_POST['groups']) )
+{
+    $group = $_POST['groups'];
+    $errorMessage = "";
+}
+if(!isset($_POST['groups']))
+{
+    $errorMessage .= "<li>Please select a group</li>";
+}
+    ?>
+    </select>
+<ul>
+    <li>Product Backlog<a href="pBacklog2.php"></li>
+    <li>Sprint Planning<a href="sprintBacklog2.php"></li>
+    <li>Sprint Review<a href="sprintReview"></li>
+    <li>Sprint Retrospective<a href="Retrospective2.php"></li>
+</ul>
 </div>
+
+
 <footer class="container-fluid">
     <ul class="nav justify-content-center">
         <li class="nav-item">

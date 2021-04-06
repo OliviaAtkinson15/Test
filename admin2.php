@@ -22,15 +22,12 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="assets/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Lobster&display=swap" rel="stylesheet">
 </head>
-<body>
+
 
 
 <header class="container-fluid">
@@ -43,7 +40,7 @@
         include("dbconnect.php");
         session_start();
         $email = $_SESSION['email'];
-
+        $gname = $_SESSION['gname'];
         echo "<h5>$email</h5>";
         ?>
         <ul class="nav justify-content-center">
@@ -57,52 +54,18 @@
         </ul>
     </nav>
 </header>
-<div id="groupnames"
-<h1>Choose a group to assess</h1><br>
+<h1><?php echo $gname?></h1>
+<ul>
+    <li><a href="?link=1" name="link1">Product Backlog</a></li>
+    <li><a href="?link=2" name="link2">Sprint Planning</a></li>
+    <li><a href="?link=3" name="link3">Sprint Review</a></li>
+    <li><a href="?link=4" name="link4">Sprint Retrospective</a></li>
+</ul>
 
-<form id="group" action="" method="post">
-    <label for="groups">Group name:</label>
+<div id="mainSection">
 
-    <select name="groups" id="groups">
-<?php
-
-$sql= $db->query("SELECT team_name FROM team_users WHERE NOT (team_name = 'admin') group by team_name");
-
-$array2 = [];
-
-while($row = mysqli_fetch_array($sql))
-{
-    $array2[] = $row;
-}
-?>
-    <option selected disabled >Select...</option>;
-<?php
-foreach($array2 as $item){
-
-?>
-    <option value="<?php echo $item['team_name'] ?>"><?php echo $item['team_name'] ?></option>
-    <?php
-    }
-
-    ?>
-    </select>
-    <input name="submit" type="submit">
-</form>
-<?php
-if(isset($_POST['submit'])) {
-    $groupname = $_POST['groups'];
-    if ($groupname == "") {
-        echo "Please choose the group to grade.";
-} else {
-
-        header('location: admin2.php');
-
-    }
-}
-$_SESSION['gname'] = $groupname;
-?>
 </div>
-</div>
+
 
 
 <footer class="container-fluid">

@@ -54,12 +54,12 @@
         </ul>
     </nav>
 </header>
-<h1><?php echo $gname?></h1>
+<?php echo "<h1>Group: $gname</h1>"?>
 <ul>
-    <li><a href="?link=1" name="link1">Product Backlog</a></li>
+    <li><a href="pBacklog2.php" name="link1">Product Backlog</a></li>
     <li><a href="?link=2" name="link2">Sprint Planning</a></li>
-    <li><a href="?link=3" name="link3">Sprint Review</a></li>
-    <li><a href="?link=4" name="link4">Sprint Retrospective</a></li>
+    <li><a href="sprintReview.php" name="link3">Sprint Review</a></li>
+    <li><a href="retrospective2.php" name="link4">Sprint Retrospective</a></li>
 </ul>
 
 <div id="mainSection">

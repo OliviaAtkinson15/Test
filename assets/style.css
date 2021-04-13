@@ -102,10 +102,104 @@ form{
     float: left;
 }
 #groupnames{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+    margin-top: 50px;
+    text-align: left;
+    font-family: arial;
+    font-weight: bold;
+    color: dimgrey;
+    font-size: 40px;
+    padding-left: 20px;
+    padding-right: 0px;
+    width: 20%;
+
+    margin-right: 0px;
 
 }
+#choosegroup {
+  margin-top: 50px;
+    text-align: center;
+    font-family: arial;
+    font-weight: bold;
+    color: dimgrey;
+    font-size: x-large;
+}
+#group{
+  padding-top: 20px;
+    width: 25%;
+  text-align: center;
+    font-size: large;
+    font-family: arial;
+    font-weight: bold;
+    color: dimgrey;
+    margin-bottom: 50px;
 
 
+}
+#groupsubmit{
+    border-radius: 10px;
+    text-align: center;
+    font-family: arial;
+    background-color: cornflowerblue;
+    color: white;
+    width:202px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none ;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#groups{
+
+}
+select {
+// A reset of styles, including removing the default dropdown arrow
+appearance: none;
+// Additional resets for further consistency
+background-color: transparent;
+
+    padding: 0 5em 0 0;
+    margin: 0;
+    width: 50%;
+    font-family: Arial;
+    color: dimgrey;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    border-radius: 10px;
+}
+.projects{
+
+    margin-bottom: 40px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+}
+.projects li{
+
+    border-radius: 10px;
+    margin: 10px;
+    background-color: cornflowerblue;
+    width: 80%;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-decoration: none;
+    text-align: center;
+    list-style-type: none;
+
+}
+.projects li:hover {
+    background-color: dimgrey;
+}
+.projects li a{
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    font-family: Arial;
+    color: snow;
+    text-align: center;
+
+}

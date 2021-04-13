@@ -1,5 +1,4 @@
 
-
 <?PHP
 include("dbconnect.php");
 
@@ -30,15 +29,15 @@ include("dbconnect.php");
 
         <?php
         session_start();
-        $email = $_SESSION['email'];
-        echo "<h5>$email</h5>";
+        $user = $_SESSION['user'];
+        echo "<h5>$user</h5>";
         ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link active" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">My Page</a>
+                <a class="nav-link" href="userTest.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
@@ -78,7 +77,7 @@ if (isset($_POST['submit'])) {
         $task=$_POST['task'];
         $task_start=$_POST['task_start'];
         $task_end=$_POST['task_end'];
-        $sql = "INSERT INTO tasks (task, task_start, task_end) VALUES ('$task', '$task_start', '$task_end')";
+        $sql = "INSERT INTO tasks (task, task_start, task_end, is_completed) VALUES ('$task', '$task_start', '$task_end', 'no')";
         //print $sql;
         mysqli_query($db, $sql);}
 }
@@ -87,7 +86,7 @@ if (isset($_POST['submit'])) {
 // delete task
 if (isset($_POST['delete'])) {
     $id_to_delete = mysqli_real_escape_string($db,$_POST['id_to_delete']);
-    $sql="DELETE FROM tasks WHERE uid=$id_to_delete";
+    $sql="DELETE FROM tasks WHERE id=$id_to_delete";
 
 
     mysqli_query($db, $sql);
@@ -96,29 +95,32 @@ if (isset($_POST['delete'])) {
     //header('location: try.php');
 }
 
+
+
+
 ?>
 
 
 <body>
 <h2>Sprint Planning</h2>
-    <div>
+<div>
 
-        <form method="post" id="task">
-            <?php if (isset($errors)) { ?>
-                <p><?php echo $errors; ?></p>
-            <?php } ?>
-            <label for="task">Enter Task:</label><br>
-            <input type="text" id="task_input" name="task"><br>
-            <label for="start">Start date:</label><br>
-            <input type="date" id="start" name="task_start" value="" placeholder="dd-mm-yyyy"min="2021-01-01" max=""><br>
-            <label for="end">End date:</label><br>
-            <input type="date" id="end" name="task_end" value="" placeholder="dd-mm-yyyy" min="2021-01-01" max=""><br>
+    <form method="post" id="task">
+        <?php if (isset($errors)) { ?>
+            <p><?php echo $errors; ?></p>
+        <?php } ?>
+        <label for="task">Enter Task:</label><br>
+        <input type="text" id="task_input" name="task"><br>
+        <label for="start">Start date:</label><br>
+        <input type="date" id="start" name="task_start" value="" placeholder="dd-mm-yyyy"min="2021-01-01" max=""><br>
+        <label for="end">End date:</label><br>
+        <input type="date" id="end" name="task_end" value="" placeholder="dd-mm-yyyy" min="2021-01-01" max=""><br>
 
 
-            <br>
-            <button type="submit" name="submit" id="add_btn" >Add Task</button><br>
-        </form>
-    </div>
+        <br>
+        <button type="submit" name="submit" id="add_btn" >Add Task</button><br>
+    </form>
+</div>
 
 <main>
     <table>
@@ -129,6 +131,8 @@ if (isset($_POST['delete'])) {
             <th>task start</th>
             <th>task end</th>
             <th>Action</th>
+            <th>Action</th>
+            <th>Assigned to</th>
         </tr>
         </thead>
 
@@ -137,20 +141,76 @@ if (isset($_POST['delete'])) {
         // select all tasks if page is visited or refreshed
         $tasks = mysqli_query($db, "SELECT * FROM tasks");
 
-        $i = 1; while ($row = mysqli_fetch_array($tasks)) { ?>
+        $i = 1;while ($row = mysqli_fetch_array($tasks)) { ?>
             <tr>
                 <td> <?php echo $i; ?> </td>
                 <td > <?php echo $row['task']; ?> </td>
                 <td > <?php echo $row['task_start']; ?> </td>
                 <td > <?php echo $row['task_end']; ?> </td>
+
                 <td>
                     <form method="POST">
-                        <input type="hidden" name="id_to_delete" value="<?php echo $row['uid']?>">
+                        <input type="hidden" name="id_to_delete" value="<?php echo $row['id']?>">
                         <input type="submit" id="delete" name="delete" value="delete" >
                     </form>
                 </td>
+
+                <td>
+                    <!-- assign task to team members c 23/03/21-- By Onyinye Stella -->
+                    <form method="POST">
+                        <input type="hidden" name="id_to_assign" value="<?php echo $row['id']?>">
+                        <select name="to_user" class="form-control">
+                            <option value="pick">user</option>
+                            <?php
+                            $sqlT = mysqli_query($db, "SELECT * From team_users WHERE team_name LIKE '%c%'");
+                            $row = mysqli_num_rows($sqlT);
+                            while ($row = mysqli_fetch_array($sqlT)){
+                                echo "<option value='". $row['ID'] ."'>" .$row['FirstName'] ."</option>" ;
+                            }
+                            ?>
+                        </select>
+                        <input type="submit" name="assign" id="assign" value="Assign">
+                        <?php
+                        //ASSIGN A TASK 23/03/21
+                        if (isset($_POST['assign'])){
+                            $user = $_POST['to_user'];
+                            $assignID = mysqli_real_escape_string($db, $_POST['id_to_assign']);
+                            //echo $user ;
+                            //echo $assignID;
+                            //insert assigned to to task table
+                            $sqlA = mysqli_query($db, "UPDATE tasks SET assigned_to = $user WHERE id=$assignID;");
+
+
+                            //retrieve name of the assigned to id
+                            //$sqlTT = mysqli_query($db,"SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND id = '$assignID'");
+                        }
+                        //End of assign a task 23/3/21//////
+                        ?>
+                    </form>
+
+
+                </td>
+
+                <td>
+                    <?php
+                    $Assigned = mysqli_query($db, "SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND assigned_to = '$user'");
+                    $result = mysqli_num_rows($Assigned);
+                    if($result>0){
+                        while ($row = mysqli_fetch_array($Assigned)){
+                            echo $row['FirstName'] ;
+
+                        }
+                    }
+
+                    ?>
+                </td>
+
+
+
+
             </tr>
-            <?php $i++; } ?>
+            <?php $i++; }
+        ?>
 
         </tbody>
     </table>

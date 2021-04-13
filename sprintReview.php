@@ -45,7 +45,7 @@
         ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link disabled" href="admin.php">Home</a>
+                <a class="nav-link" href="admin.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>
@@ -54,19 +54,19 @@
         </ul>
     </nav>
 </header>
-<?php echo "<h1>Group: $gname</h1>"?>
-
+<?php echo "<h1 id='groupnames'>Group: $gname</h1>"?>
+<a href="admin2.php"><img src="assets/arrow.png" width="40" height="40" class="return" alt="return"></a>
 
 <body>
 
 
 
 <main class="container">
-    <a href="admin2.php">Return</a>
+
     <h3 id="discussion">Sprint Review</h3>
 
-    <video width="320" height="240" controls>
-        <source src="assets/TeamCIncrementA1.mov" type="video/mov">
+    <video width="500" height="440" controls>
+        <source src="assets/zoom_0.mp4" type="video/mp4">
 
         Your browser does not support the video tag.
     </video>

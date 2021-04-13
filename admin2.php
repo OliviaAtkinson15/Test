@@ -45,7 +45,7 @@
         ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link disabled" href="admin.php">Home</a>
+                <a class="nav-link" href="admin.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>
@@ -54,10 +54,10 @@
         </ul>
     </nav>
 </header>
-<?php echo "<h1>Group: $gname</h1>"?>
-<ul>
+<?php echo "<h1 id='groupnames'>Group: $gname</h1>"?>
+<ul class="projects">
     <li><a href="pBacklog2.php" name="link1">Product Backlog</a></li>
-    <li><a href="?link=2" name="link2">Sprint Planning</a></li>
+    <li><a href="sPlan.php" name="link2">Sprint Planning</a></li>
     <li><a href="sprintReview.php" name="link3">Sprint Review</a></li>
     <li><a href="retrospective2.php" name="link4">Sprint Retrospective</a></li>
 </ul>

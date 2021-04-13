@@ -57,12 +57,12 @@
         </ul>
     </nav>
 </header>
-<div id="groupnames"
-<h1>Choose a group to assess</h1><br>
+
+<h1 id="choosegroup">Choose a group to assess</h1><br>
 
 <form id="group" action="" method="post">
-    <label for="groups">Group name:</label>
-
+    <label for="groups">Group number:</label>
+<br>
     <select name="groups" id="groups">
 <?php
 
@@ -86,7 +86,8 @@ foreach($array2 as $item){
 
     ?>
     </select>
-    <input name="submit" type="submit">
+    <br>
+    <input id="groupsubmit" name="submit" type="submit">
 </form>
 <?php
 if(isset($_POST['submit'])) {
@@ -102,7 +103,7 @@ if(isset($_POST['submit'])) {
 $_SESSION['gname'] = $groupname;
 ?>
 </div>
-</div>
+
 
 
 <footer class="container-fluid">

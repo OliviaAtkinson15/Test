@@ -5,13 +5,11 @@
  * Course: Software Engineering Project
  * 
  */
-
-
 /**
- * * 
- * 
- * 
- * 
+ * *
+ *
+ *
+ *
  */-->
 <!DOCTYPE html>
 <html>
@@ -48,69 +46,71 @@
 </header>
 <main class="container">
 
-<?php
+    <?php
 
-include("dbconnect.php");
-
-
-if (isset($_POST['register'])) { /* If the user clicked sign up then continue with this*/
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $teamname = $_POST["teamName"];
-    $useremail1 = $_POST["email1"];
-    $useremail2 = $_POST["email2"];
-    $useremail3 = $_POST["email3"];
-    $useremail4 = $_POST["email4"];
-
-    $sql = "SELECT * FROM team_users WHERE (email_address= '$email')";
-
-    $res = mysqli_query($db, $sql);
-
-    if (mysqli_num_rows($res) > 0) {
-
-        echo "an account with this email address already exists";
-
-        //$row = mysqli_fetch_assoc($res);
-        //if ($email == isset ($row['email'])) {
-        //  echo "an account with this email address already exists";
-
-        //}
-
-    } else {
-        //insert into database
+    include("dbconnect.php");
 
 
-        $insert = $db->query("INSERT INTO team_users (FirstName, LastName, email_address, password, team_name) VALUES ('$fname', '$lname', '$email', '$password','$teamname')");
+    if (isset($_POST['register'])) { /* If the user clicked sign up then continue with this*/
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $fname = $_POST["fname"];
+        $lname = $_POST["lname"];
+        $teamname = $_POST["teamName"];
+        $useremail1 = $_POST["email1"];
+        $useremail2 = $_POST["email2"];
+        $useremail3 = $_POST["email3"];
+        $useremail4 = $_POST["email4"];
 
+        $sql = "SELECT * FROM team_users WHERE (email_address= '$email')";
+        $sql2 = "SELECT * FROM team_users WHERE (teamName = '$teamname')";
 
-        if ($useremail1 != NULL) {
-            $insert1 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail1', '$password', '$teamname')");
+        $res = mysqli_query($db, $sql);
+        $res2 = mysqli_query($db, $sql2);
+
+        if (mysqli_num_rows($res) > 0) {
+
+            echo "an account with this email address already exists";
+
         }
-        if ($useremail2 != NULL) {
-            $insert2 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail2', '$password','$teamname')");
-        }
-        if ($useremail3 != NULL) {
-            $insert3 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail3', '$password','$teamname')");
-        }
-        if ($useremail4 != NULL) {
-            $insert4 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail4', '$password','$teamname')");
-        }
-        if ($insert && $insert1) {
-            echo "<h2>Group created successfully.</h2>";
+
+        if(mysqli_num_rows($res2) > 0) {
+
+            echo "a team with this team name already exists";
+
         } else {
-            echo "<h2>Unable to create group.</h2>";
+            //insert into database
+
+
+            $insert = $db->query("INSERT INTO team_users (FirstName, LastName, email_address, password, team_name) VALUES ('$fname', '$lname', '$email', '$password','$teamname')");
+
+
+            if ($useremail1 != NULL) {
+                $insert1 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail1', '$password', '$teamname')");
+            }
+            if ($useremail2 != NULL) {
+                $insert2 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail2', '$password','$teamname')");
+            }
+            if ($useremail3 != NULL) {
+                $insert3 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail3', '$password','$teamname')");
+            }
+            if ($useremail4 != NULL) {
+                $insert4 = $db->query("INSERT INTO team_users (email_address, password, team_name) VALUES ('$useremail4', '$password','$teamname')");
+            }
+            if ($insert && $insert1) {
+                echo "<h2>Group created successfully.</h2>";
+            } else {
+                echo "<h2>Unable to create group.</h2>";
+            }
         }
     }
-}
 
 
-// close connection to database
-$db->close();
+    // close connection to database
+    $db->close();
 
-?>
-<br><a href="Login.php" class="backtologin">Back to Login</a>
+    ?>
+    <br><a href="Login.php" class="backtologin">Back to Login</a>
 </main>
 
 <footer class="container-fluid">

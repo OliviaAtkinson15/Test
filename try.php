@@ -37,7 +37,7 @@ include("dbconnect.php");
                 <a class="nav-link active" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="userTest.php">My Page</a>
+                <a class="nav-link" href="user.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
@@ -196,12 +196,6 @@ if (isset($_POST['delete'])) {
 
                             //retrieve name of the assigned to id
                             //$sqlTT = mysqli_query($db,"SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND id = '$assignID'");
-                        }
-                        if($sqlA){
-                            header("Refresh:0");
-                        }
-                        else{
-                            echo "Error assigning task.";
                         }
                         //End of assign a task 23/3/21//////
                         ?>

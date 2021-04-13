@@ -1,17 +1,16 @@
+
 <!--/**
  * Name: ILOANUGO ONYINYR
  * StudentId: 2009808
  * CourseCode: CMM 004
  * Course: Software Engineering Project
- * 
+ *
  */
-
-
 /** A TEMPORARY USER HOME PAGE
- * * 
+ * *
  * A USER CAN NAVIGATE TO THE TEAM PAGE FROM HERE.
- * 
- * 
+ *
+ *
  */-->
 
 <!DOCTYPE html>
@@ -37,15 +36,15 @@
                 Collaborations...</b></a>
         <?php
         session_start();
-        $email = $_SESSION['email'];
-        echo "<h5>$email</h5>";
+        $email = $_SESSION['user'];
+        echo "<h5>HELLO $email</h5>";
         ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link disabled" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">My Page</a>
+                <a class="nav-link disabled" href="userTest.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
@@ -120,4 +119,3 @@
 
 </body>
 </html>
-

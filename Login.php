@@ -63,8 +63,9 @@
 <?php
 
 include("dbconnect.php");
+session_start();
 
-if (isset($_POST['Login'])) { /* If the user clicked login then continue with this */
+/*if (isset($_POST['Login'])) { /* If the user clicked login then continue with this
 
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -91,12 +92,43 @@ if (isset($_POST['Login'])) { /* If the user clicked login then continue with th
             echo "<p>Email or password not recognised.</p>";
         }
 
+}*/
+
+if (isset($_POST['Login'])) { /* If the user clicked login then continue with this */
+
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT FirstName FROM team_users WHERE email_address='$email' and password='$password'";
+
+    $result = mysqli_query($db, $sql);
+    if (mysqli_num_rows($result) == 1) {
+
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+        if(isset($row['FirstName'])) {
+            $_SESSION['user'] = $row['FirstName'];
+            $_SESSION['id'] = $row['ID'];
+            $_SESSION['team'] = $row['team_name'];
+            if ($email == "admin@rgu.ac.uk") {
+                header('Location: admin.php');
+            }
+            else {
+                header("location: home.php"); // Redirecting To another Page
+            }
+        } else {
+            header("location: EnteringName.php"); // Redirecting To another Page
+        }
+    }
+    else {
+        echo "<p>Email or password not recognised.</p>";
+    }
+
 }
 
 
 
-session_start();
-$_SESSION['email'] = $email;
+
 
 
 ?>

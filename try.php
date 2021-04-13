@@ -196,14 +196,13 @@ if (isset($_POST['delete'])) {
 
                             //retrieve name of the assigned to id
                             //$sqlTT = mysqli_query($db,"SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND id = '$assignID'");
-
-                            if($sqlA){
-                                header("Location:try.php");
-                            }
-                            else{
-                                echo "Error assigning task.";
-                            }}
-
+                        }
+                        if($sqlA){
+                            header("Refresh:0");
+                        }
+                        else{
+                            echo "Error assigning task.";
+                        }
                         //End of assign a task 23/3/21//////
                         ?>
                     </form>

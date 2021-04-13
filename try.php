@@ -130,9 +130,10 @@ if (isset($_POST['delete'])) {
             <th>Tasks</th>
             <th>task start</th>
             <th>task end</th>
-            <th>Action</th>
-            <th>Action</th>
             <th>Assigned to</th>
+            <th>Action</th>
+            <th>Action</th>
+
         </tr>
         </thead>
 
@@ -147,6 +148,14 @@ if (isset($_POST['delete'])) {
                 <td > <?php echo $row['task']; ?> </td>
                 <td > <?php echo $row['task_start']; ?> </td>
                 <td > <?php echo $row['task_end']; ?> </td>
+                <td >
+                    <?php
+                  $assignedto = $row['assigned_to'];
+
+                    $try = $db->query("SELECT FirstName FROM team_users WHERE ID = '$assignedto'");
+                    $row2 = mysqli_fetch_array($try);
+                    echo $row2['FirstName'];
+                     ?></td>
 
                 <td>
                     <form method="POST">
@@ -160,7 +169,7 @@ if (isset($_POST['delete'])) {
                     <form method="POST">
                         <input type="hidden" name="id_to_assign" value="<?php echo $row['id']?>">
                         <select name="to_user" class="form-control">
-                            <option value="pick">user</option>
+                            <option selected disabled >...</option>;
                             <?php
                             $sqlT = mysqli_query($db, "SELECT * From team_users WHERE team_name LIKE '%c%'");
                             $row = mysqli_num_rows($sqlT);
@@ -168,8 +177,12 @@ if (isset($_POST['delete'])) {
                                 echo "<option value='". $row['ID'] ."'>" .$row['FirstName'] ."</option>" ;
                             }
                             ?>
+
                         </select>
                         <input type="submit" name="assign" id="assign" value="Assign">
+                        <?php $i++;
+                        }
+                        ?>
                         <?php
                         //ASSIGN A TASK 23/03/21
                         if (isset($_POST['assign'])){
@@ -183,7 +196,14 @@ if (isset($_POST['delete'])) {
 
                             //retrieve name of the assigned to id
                             //$sqlTT = mysqli_query($db,"SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND id = '$assignID'");
-                        }
+
+                            if($sqlA){
+                                header("Location:try.php");
+                            }
+                            else{
+                                echo "Error assigning task.";
+                            }}
+
                         //End of assign a task 23/3/21//////
                         ?>
                     </form>
@@ -191,8 +211,7 @@ if (isset($_POST['delete'])) {
 
                 </td>
 
-                <td>
-                    <?php
+             <!--  $try = $db->query("SELECT team_name FROM team_users WHERE NOT (team_name = 'admin') group by team_name");
                     $Assigned = mysqli_query($db, "SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND assigned_to = '$user'");
                     $result = mysqli_num_rows($Assigned);
                     if($result>0){
@@ -200,17 +219,9 @@ if (isset($_POST['delete'])) {
                             echo $row['FirstName'] ;
 
                         }
-                    }
-
-                    ?>
-                </td>
-
-
-
-
+                    }-->
             </tr>
-            <?php $i++; }
-        ?>
+
 
         </tbody>
     </table>

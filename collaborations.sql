@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `chat` (
-  `chat_id` int(11) NOT NULL,
-  `message-in` varchar(225) NOT NULL,
-  `date` date NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `meeting_name` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                        `chat_id` int(11) NOT NULL,
+                        `text` varchar(5000) NOT NULL,
+                        `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        `user` varchar(20) NOT NULL,
+                        `image` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -192,6 +192,9 @@ ALTER TABLE `team_users`
 ALTER TABLE `tasks`
   ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_to`) REFERENCES `team_users` (`ID`);
 COMMIT;
+
+ALTER TABLE `chat`
+    MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

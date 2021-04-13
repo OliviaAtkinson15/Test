@@ -23,10 +23,10 @@ session_start();
 //$team = $_SESSION['team'];
 //echo $team;
 
-/*if (!isset($_SESSION['user'])){
+if (!isset($_SESSION['user'])){
     header("Location:login.php");
 
-}*/
+}
 //echo $_SESSION['use'];
 //echo '  login successful';
 ?>

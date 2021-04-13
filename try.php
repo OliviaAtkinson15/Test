@@ -37,7 +37,7 @@ include("dbconnect.php");
                 <a class="nav-link active" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="user.php">My Page</a>
+                <a class="nav-link" href="userPage.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
@@ -94,7 +94,20 @@ if (isset($_POST['delete'])) {
 
     //header('location: try.php');
 }
+if (isset($_POST['assign'])){
+    $user = $_POST['to_user'];
+    $assignID = mysqli_real_escape_string($db, $_POST['id_to_assign']);
+    //echo $user ;
+    //echo $assignID;
+    //insert assigned to to task table
+    $sqlA = mysqli_query($db, "UPDATE tasks SET assigned_to = $user WHERE id=$assignID;");
 
+    if($sqlA){
+        header("Refresh:0");
+    }
+    //retrieve name of the assigned to id
+    //$sqlTT = mysqli_query($db,"SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND id = '$assignID'");
+}
 
 
 
@@ -137,7 +150,7 @@ if (isset($_POST['delete'])) {
         </tr>
         </thead>
 
-        <tbody>
+        <body>
         <?php
         // select all tasks if page is visited or refreshed
         $tasks = mysqli_query($db, "SELECT * FROM tasks");
@@ -183,22 +196,7 @@ if (isset($_POST['delete'])) {
                         <?php $i++;
                         }
                         ?>
-                        <?php
-                        //ASSIGN A TASK 23/03/21
-                        if (isset($_POST['assign'])){
-                            $user = $_POST['to_user'];
-                            $assignID = mysqli_real_escape_string($db, $_POST['id_to_assign']);
-                            //echo $user ;
-                            //echo $assignID;
-                            //insert assigned to to task table
-                            $sqlA = mysqli_query($db, "UPDATE tasks SET assigned_to = $user WHERE id=$assignID;");
 
-
-                            //retrieve name of the assigned to id
-                            //$sqlTT = mysqli_query($db,"SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND id = '$assignID'");
-                        }
-                        //End of assign a task 23/3/21//////
-                        ?>
                     </form>
 
 
@@ -215,8 +213,12 @@ if (isset($_POST['delete'])) {
                     }-->
             </tr>
 
+        <?php
+        //ASSIGN A TASK 23/03/21
 
-        </tbody>
+        //End of assign a task 23/3/21//////
+        ?>
+        </body>
     </table>
 </main>
 

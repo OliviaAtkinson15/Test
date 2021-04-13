@@ -460,6 +460,7 @@ a.button {
     /*min-height: 500px;*/
     margin: 0 15px;
     padding: 8px;
+    list-style: none;
     /*overflow :auto;
     height: 400px;*/
 }
@@ -477,6 +478,7 @@ a.button {
     padding: 15px 20px;
     text-align: center;
     margin: 4px 0px;
+    list-style: none;
 }
 
 #droppable {
@@ -486,5 +488,9 @@ a.button {
     float:   right;
     margin:  10px;
     cursor:  pointer;
+}
+
+li{
+    list-style: none;
 }
 /* do not touch*/

@@ -114,7 +114,7 @@ mysqli_close($db);
 <!--<p><h2 align="center">USER PAGE</h2></p>-->
 <div class="row">
     <div class="col-md-4">
-        <h4>My Task</h4>
+        <h4>MY TASKS </h4>
         <div class="li_containers">
 
             <?php foreach ($mytask as $key => $item) { ?>
@@ -131,7 +131,7 @@ mysqli_close($db);
     </div>
 
     <div class="col-md-4">
-        <h4>Task done</h4>
+        <h4>TASKS COMPLETED</h4>
         <div id="droppable" class="ui-widget-header">
 
             <?php foreach ($completeTask as $key => $citem) { ?>
@@ -147,7 +147,7 @@ mysqli_close($db);
         </div>
     </div>
     <div class="col-md-4">
-        <h4>Calendar with Deadlines</h4>
+        <h4>CALENDAR</h4>
     </div>
 </div>
 

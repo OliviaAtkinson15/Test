@@ -44,7 +44,7 @@
                 <a class="nav-link disabled" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="userTest.php">My Page</a>
+                <a class="nav-link" href="userpage.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>

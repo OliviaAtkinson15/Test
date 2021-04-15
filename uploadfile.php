@@ -47,7 +47,7 @@
         $statusMsg = '';
 
         //File upload path
-        $targetDir = "/Applications/MAMP/htdocs/Test";
+        $targetDir = "/Applications/MAMP/htdocs/Test/uploads/";
 
         if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
             $fileName = basename($_FILES["file"]["name"]);

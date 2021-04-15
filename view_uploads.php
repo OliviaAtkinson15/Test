@@ -62,7 +62,7 @@
                             <td> <?php echo $row ['file_name']; ?></td>
 
                                 <?php
-                                echo '<td><a href=/Applications/MAMP/htdocs/Test'.$row['file_name'].'>'?>Click here to view file</a></td>
+                                echo '<td><a href=/Applications/MAMP/htdocs/Test/uploads/'.$row['file_name'].'>'?>Click here to view file</a></td>
                             <!--<td><a href="/Applications/MAMP/htdocs/Test<?php /*echo $row['file_name']; */?>" target="_blank">Click here to view file</a></td>-->
                         </tr>
 

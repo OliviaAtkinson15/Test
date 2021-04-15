@@ -52,6 +52,16 @@ CREATE TABLE `product_backlog` (
 --
 -- Dumping data for table `product_backlog`
 --
+CREATE TABLE `uploads` (
+                           `id` int(11) NOT NULL,
+                           `file_name` varchar(255) NOT NULL,
+                           `uploaded_on` datetime NOT NULL,
+                           `status` enum('1','0') NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `uploads`
+    ADD PRIMARY KEY (`id`);
+ALTER TABLE `uploads`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 INSERT INTO `product_backlog` (`product_backlog_id`, `product_item`, `product_task`, `criteria`, `effort`) VALUES
 (48, 'marketing', 'as a user i want to .....', 'test properly', 'M'),

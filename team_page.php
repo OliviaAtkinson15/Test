@@ -214,7 +214,118 @@ include ("dbconnect.php");
 
 
     </div>
+    <div id="upload">
+    <form method="post" enctype="multipart/form-data" id="upload_form">
 
+        <h5> Upload a File </h5><br>
+
+        <input type="file" name="file" id="file_button"<br><br>
+        <br><input type="submit" name="submit" id="submit_button"> <br><br>
+
+    </form>
+
+    <!-- PHP Code Start -->
+    <?php
+
+
+    $statusMsg = '';
+
+    //File upload path
+    $targetDir = "/Applications/MAMP/htdocs/Test/uploads/";
+
+    if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
+        $fileName = basename($_FILES["file"]["name"]);
+        $targetFilePath = $targetDir . $fileName;
+        $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+        //Allow PDF, JPEG, DOCX, PPT, XLSX and mp4 files
+        $allowTypes = array('pdf', 'jpeg', 'docx', 'ppt', 'xlsx', 'mp4', 'jpg', 'png');
+
+        if (in_array($fileType, $allowTypes)) {
+            //Upload file to server
+
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+
+                $sql = "SELECT * FROM uploads WHERE (file_name = '$fileName')";
+                $res = mysqli_query($db, $sql);
+
+                if (mysqli_num_rows($res) > 0) {
+
+                    $statusMsg = "Sorry, this file already exists";
+
+                } else {
+
+                    // Insert file into db
+                    $insert = $db->query("INSERT INTO uploads (file_name, uploaded_on) VALUES ('$fileName', NOW())");
+
+                    //Status message saying that the file has been uploaded succesfully
+                    if ($insert) {
+                        $statusMsg = "The file " . $fileName . " has been uploaded successfully";
+
+                    } else {
+                        // Status message saying unable to upload the file
+                        $statusMsg = "Sorry, there was an error uploading your file.";
+                    }
+                }
+            }
+        }
+        else {
+            echo 'Sorry, only pdf, jpeg, docx, ppt, xlsx, mp4 files are allowed to upload.';
+        }
+    }
+    echo $statusMsg;
+
+    ?>
+
+    </div>
+    <div id="viewuploads">
+    <h5> View Uploads </h5><br>
+
+    <!-- View Uploads Start -->
+
+    <?php
+
+    include ('dbconnect.php');
+
+    // Get files from the DB
+
+    $sql = "SELECT file_name FROM uploads ORDER BY file_name DESC";
+    $result = $db -> query($sql);
+
+    ?>
+
+
+        <table width="100%" border="1" style="text-align: center">
+            <thead>
+            <tr>
+                <th> File Name </th>
+                <th> View File </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <?php
+            if($result->num_rows > 0){
+                while ($row = mysqli_fetch_array($result)) { ?>
+
+                    <tr>
+                        <td> <?php echo $row ['file_name']; ?></td>
+
+                        <?php
+                        echo '<td><a href=uploads/'.$row['file_name'].'>'?>Click here to view file</a></td>
+                        <!--<td><a href="/Applications/MAMP/htdocs/Test<?php /*echo $row['file_name']; */?>" target="_blank">Click here to view file</a></td>-->
+                    </tr>
+
+
+                <?php   }
+            } else {
+                echo "Please Upload A File!";
+            }
+            ?>
+
+            </tbody>
+        </table>
+    </div>
 
 </main>
 

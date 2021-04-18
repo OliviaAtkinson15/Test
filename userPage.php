@@ -76,6 +76,7 @@ mysqli_close($db);
         echo '<h1>Hello '. $_SESSION['user'].'</h1>';
         ?>
 
+
         <ul class="nav justify-content-center">
             <li class="nav-item">
                 <a class="nav-link active" href="home.php">Home</a>
@@ -87,17 +88,21 @@ mysqli_close($db);
                 <a class="nav-link" href="team_page.php">Team Page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pBacklog.php">Product Backlog</a>
+                <a class="nav-link " href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="sprint_planning.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Chat.php">Chat</a>
+                <a class="nav-link" href="sprintreview2.php">Sprint Review</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Chat.php">Discussions</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>
             </li>
+        </ul>
 
         </ul>
     </nav>

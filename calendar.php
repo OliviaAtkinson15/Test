@@ -5,7 +5,7 @@
     <link href='fullcalendar.min.css' rel='stylesheet' />
     <link href='fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <script src='lib/moment.min.js'></script>
-    <script src='lib/jquery.min.js'></script>
+<!--    <script src='lib/jquery.min.js'></script>-->
     <script src='fullcalendar.min.js'></script>
 
     <script>
@@ -123,58 +123,11 @@
             setInterval(function() { $(".success").fadeOut(); }, 1000);
         }
     </script>
-    <script>
-        $servername = 'localhost';
-        $username = 'Db_user_Name';
-        $password = 'Db_Password';
-        $db = 'collaboration';
-        $conn = mysqli_connect($servername,$username,$password,$db) ;
-        if (!$conn)
-        {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        }
-    </script>
-    <script>
-        $title = $_POST['title'];
-        $start = $_POST['start'];
-        $end = $_POST['end'];
-        $sqlInsert = "INSERT INTO table_tasks (title,start,end) VALUES ('".$title."','".$start."','".$end ."')";
-        $result = mysqli_query($conn, $sqlInsert);
-        if (! $result) {
-            $result = mysqli_error($conn);
-        }
-        echo $last_id = mysqli_insert_id($conn);
-    </script>
-    <script>
-        $id = $_POST['id'];
-        $title = $_POST['title'];
-        $start = $_POST['start'];
-        $end = $_POST['end'];
-        $sqlUpdate = "UPDATE table_tasks SET title='$title', start='$start', end='$end' WHERE id= '$id'";
-        mysqli_query($conn, $sqlUpdate)
-        //mysqli_close($conn);
-    </script>
-    <script>
-        $json = array();
-        $sqlQuery = "SELECT * FROM table_tasks ORDER BY id";
-        $result = mysqli_query($conn, $sqlQuery);
-        $alldata = array();
-        while ($row = mysqli_fetch_assoc($result))
-        {
-            array_push($alldata, $row);
-        }
-        mysqli_free_result($result);
-        mysqli_close($conn);
-        echo json_encode($alldata);
-    </script>
-    <script>
-        require "database.php";
-        $id = $_POST['id'];
-        $sqlDelete = "DELETE from table_tasks WHERE id=".$id;
-        mysqli_query($conn, $sqlDelete);
-        echo mysqli_affected_rows($conn);
-        mysqli_close($conn);
-    </script>
+
+
+
+
+
     <style>
         body {
             margin: 40px 10px;

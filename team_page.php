@@ -80,7 +80,10 @@ include ("dbconnect.php");
                 <a class="nav-link" href="sprint_planning.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Chat.php">Chat</a>
+                <a class="nav-link" href="sprintreview2.php">Sprint Review</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Chat.php">Discussions</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>

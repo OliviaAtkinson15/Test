@@ -1,3 +1,4 @@
+
 <?php include("dbconnect.php");
 
 
@@ -29,7 +30,7 @@ if (isset($_POST['select'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<div lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +51,7 @@ if (isset($_POST['select'])) {
             <?php
             session_start();
             $user = $_SESSION['user'];
-            echo "<h5>$user</h5>";
+            echo "<h5>Hello $user</h5>";
             ?>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
@@ -83,6 +84,7 @@ if (isset($_POST['select'])) {
     </header>
         <meta charset="UTF-8">
     <title>Sprint Planning</title>
+
     <style>
         .dropdown2 {
             position: relative;
@@ -155,8 +157,10 @@ text-align: center;
         #mtasks, a{
             text-decoration: none;
         }
-
-
+.footer{
+    float: bottom;
+    margin-top: 100px;
+}
 
 
     </style>
@@ -268,10 +272,16 @@ text-align: center;
 
     </div>
  </div>
-</div
 
 
-    </div>
-    </body>
+</body>
 
-    </html>
+
+</html>
+    <?php
+
+    ?>
+<html>
+
+</div>
+</html>

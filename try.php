@@ -26,7 +26,7 @@ include("dbconnect.php");
         <?php
         session_start();
         $user = $_SESSION['user'];
-        echo "<h5>$user</h5>";
+        echo "<h5> Hello $user</h5>";
         ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
@@ -45,10 +45,7 @@ include("dbconnect.php");
                 <a class="nav-link disabled" href="try.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Daily Sprint</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
+                <a class="nav-link" href="Chat.php">Chat</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>
@@ -67,20 +64,6 @@ include("dbconnect.php");
 
 <?php
 
-if (isset($_POST['submit'])) {
-    if(empty($_POST["task"]) || empty($_POST["task_start"])|| empty($_POST["task_end"]))
-    {
-        echo "fields are required.";
-    }else
-    {
-//assign local variables to the parameters passed in via the POST
-        $task=$_POST['task'];
-        $task_start=$_POST['task_start'];
-        $task_end=$_POST['task_end'];
-        $sql = "INSERT INTO tasks (task, task_start, task_end, is_completed) VALUES ('$task', '$task_start', '$task_end', 'no')";
-        //print $sql;
-        mysqli_query($db, $sql);}
-}
 
 
 // delete task
@@ -133,7 +116,28 @@ if (isset($_POST['assign'])){
 
         <br>
         <button type="submit" name="submit" id="add_btn" >Add Task</button><br>
+        <?php
+        if (isset($_POST['submit'])) {
+            if(empty($_POST["task"]) || empty($_POST["task_start"])|| empty($_POST["task_end"]))
+            {
+                echo "fields are required.";
+            }else
+            {
+//assign local variables to the parameters passed in via the POST
+                $task=$_POST['task'];
+                $task_start=$_POST['task_start'];
+                $task_end=$_POST['task_end'];
+                if ($task_end<$task_start){
+                    echo "End date must be later than start date";
+                }
+                else{
+                    $sql = "INSERT INTO tasks (task, task_start, task_end, is_completed) VALUES ('$task', '$task_start', '$task_end', 'no')";
+                    //print $sql;
+                    mysqli_query($db, $sql);}}
+        }
+        ?>
     </form>
+
 </div>
 
 
@@ -167,6 +171,7 @@ if (isset($_POST['assign'])){
                 <td >
                     <?php
                   $assignedto = $row['assigned_to'];
+
 
                     $try = $db->query("SELECT FirstName FROM team_users WHERE ID = '$assignedto'");
                     $row2 = mysqli_fetch_array($try);

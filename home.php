@@ -44,7 +44,7 @@
                 <a class="nav-link disabled" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="userpage.php">My Page</a>
+                <a class="nav-link" href="userPage.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
@@ -56,10 +56,7 @@
                 <a class="nav-link" href="try.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Daily Sprint</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
+                <a class="nav-link" href="Chat.php">Chat</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>

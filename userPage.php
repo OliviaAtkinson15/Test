@@ -15,7 +15,7 @@ include('dbconnect.php');
 
 //select where is_complete is no
 $user = $_SESSION['user'];
-echo $user;
+
 $result1 = mysqli_query($db,"SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND FirstName = '$user' AND is_completed = 'no'");
 $mytask = mysqli_fetch_all($result1,MYSQLI_ASSOC);
 
@@ -81,7 +81,7 @@ mysqli_close($db);
                 <a class="nav-link active" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="userTest.php">My Page</a>
+                <a class="nav-link disabled" href="userPage.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
@@ -93,10 +93,7 @@ mysqli_close($db);
                 <a class="nav-link" href="try.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Daily Sprint</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
+                <a class="nav-link" href="Chat.php">Chat</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>
@@ -146,10 +143,9 @@ mysqli_close($db);
 
         </div>
     </div>
-    <div class="col-md-4">
-        <h4>CALENDAR</h4>
-    </div>
-</div>
+
+
+
 
 
 
@@ -187,7 +183,14 @@ mysqli_close($db);
         });
     });
 </script>
+<div class="col-md-4">
+    <h4>CALENDAR</h4>
+    <?php
+    include ("calendar.php");
 
+    ?>
+</div>
+</div>
 <footer class="container-fluid">
     <ul class="nav justify-content-center">
         <li class="nav-item">

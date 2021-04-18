@@ -62,7 +62,7 @@ if (!isset($_SESSION['user'])){
                 <a class="nav-link active" href="home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="userTest.php">My Page</a>
+                <a class="nav-link" href="userPage.php">My Page</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="team_page.php">Team Page</a>
@@ -79,7 +79,6 @@ if (!isset($_SESSION['user'])){
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>
             </li>
-
         </ul>
     </nav>
 

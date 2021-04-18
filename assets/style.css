@@ -203,3 +203,50 @@ background-color: transparent;
     text-align: center;
 
 }
+#upload_form{
+    width: 30%;
+    float: left;
+    margin-left:50px;
+  margin-top: 0px;
+    text-align: center;
+    justify-content: center;
+    height: 200px;
+}
+#uploads{
+    float: left;
+    width: 75%;
+
+}
+#viewuploads2{
+    margin-right: auto;
+    margin-left: auto;
+
+    border-radius: 10px;
+    border-color: dimgrey;
+    padding: 20px;
+}
+
+#viewuploads{
+    background-color: #d4e3fc;
+    width: 60%;
+    float: right;
+    margin-right: 50px;
+    padding: 20px;
+    border-radius: 50px;
+    height:200px;
+
+}
+#viewuploads2 td{
+   padding-right: 30px;
+    padding-left: 30px;
+}
+#extra{
+    height: 150px;
+}
+
+#file_button{
+
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}

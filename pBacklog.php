@@ -74,10 +74,7 @@ if (!isset($_SESSION['user'])){
                 <a class="nav-link" href="try.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Daily Sprint</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
+                <a class="nav-link" href="Chat.php">Chat</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="login.php">Logout</a>

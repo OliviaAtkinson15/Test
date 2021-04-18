@@ -4,22 +4,18 @@ include("dbconnect.php");
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint Planning</title>
-    <link rel="stylesheet" href="pBacklog.css">
     <link rel="stylesheet" href="task_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Lobster&display=swap" rel="stylesheet">
-
 </head>
-
 <header>
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light">
@@ -60,10 +56,14 @@ include("dbconnect.php");
 
         </ul>
     </nav>
-
+</header>
 
 
 </header>
+
+
+<?php include("dbconnect.php");
+?>
 
 <?php
 
@@ -116,6 +116,7 @@ if (isset($_POST['assign'])){
 
 <body>
 <h2>Sprint Planning</h2>
+<h3>Tasks</h3>
 <div>
 
     <form method="post" id="task">
@@ -135,8 +136,10 @@ if (isset($_POST['assign'])){
     </form>
 </div>
 
+
 <main>
-    <table>
+
+    <table id="table">
         <thead>
         <tr>
             <th>N</th>
@@ -202,24 +205,13 @@ if (isset($_POST['assign'])){
 
                 </td>
 
-             <!--  $try = $db->query("SELECT team_name FROM team_users WHERE NOT (team_name = 'admin') group by team_name");
-                    $Assigned = mysqli_query($db, "SELECT * FROM tasks AS T, team_users AS U WHERE T.assigned_to = U.ID AND assigned_to = '$user'");
-                    $result = mysqli_num_rows($Assigned);
-                    if($result>0){
-                        while ($row = mysqli_fetch_array($Assigned)){
-                            echo $row['FirstName'] ;
-
-                        }
-                    }-->
             </tr>
 
-        <?php
-        //ASSIGN A TASK 23/03/21
-
-        //End of assign a task 23/3/21//////
-        ?>
         </body>
     </table>
+    </div>
+    </div>
+</div>
 </main>
 
 </body>

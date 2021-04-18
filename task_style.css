@@ -1,3 +1,4 @@
+
 #task {
     width: 20%;
     margin-left: 100px;
@@ -25,7 +26,7 @@ float: left;
 }
 
 
-table {
+#table {
     width: 60%;
     margin-right: 100px;
     border: 5px dimgrey;
@@ -37,7 +38,7 @@ padding: 20px;
     table-border-color-dark: dimgrey;
 
 }
-th,td{
+#table, th,td{
     border-collapse: collapse;
     padding:20px;
     text-align: left;
@@ -49,14 +50,14 @@ th,td{
 
 }
 
-tr {
+#table, tr {
     border-bottom: 1px dimgrey;
     height: 20px;
     padding: 20px;
 
 }
 
-th {
+#table, th {
     font-size: 19px;
     color: dimgrey;
 
@@ -78,6 +79,14 @@ h2{
     padding-top: 30px;
     padding-bottom: 30px;
 }
+h3{
+    color: dimgrey;
+    font-family: arial;
+    font-size: medium;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
 
 #delete {
     height: 39px;
@@ -87,3 +96,22 @@ h2{
     border-radius: 5px;
     padding: 5px 20px;
 }
+
+
+
+#one{
+    width:80%;
+    height: 400px;
+    margin-bottom: 250px;
+    background-color: bisque;
+}
+#two{
+    width:80%;
+
+}
+#sprinttable{
+
+    width: 300px;
+    font-family: Arial;
+}
+

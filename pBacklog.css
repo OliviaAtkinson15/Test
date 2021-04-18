@@ -32,8 +32,13 @@
     padding: 10px;
     margin-left: 40px;
     border-radius: 20px;
+    margin-bottom: 0px;
 
 
+}
+.row{
+
+    max-height: 450px;
 }
 /* creating a draggable  */
 .list-item{

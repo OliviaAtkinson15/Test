@@ -214,6 +214,7 @@ include ("dbconnect.php");
 
 
     </div>
+    <div id="uploads">
     <div id="upload">
     <form method="post" enctype="multipart/form-data" id="upload_form">
 
@@ -295,7 +296,7 @@ include ("dbconnect.php");
     ?>
 
 
-        <table width="100%" border="1" style="text-align: center">
+        <table id="viewuploads2">
             <thead>
             <tr>
                 <th> File Name </th>
@@ -326,7 +327,8 @@ include ("dbconnect.php");
             </tbody>
         </table>
     </div>
-
+    </div>
+    <div id="extra"></div>
 </main>
 
 

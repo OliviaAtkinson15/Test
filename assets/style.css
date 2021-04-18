@@ -174,8 +174,6 @@ background-color: transparent;
     margin-left: auto;
     margin-right: auto;
 
-
-
 }
 .projects li{
 
@@ -194,7 +192,7 @@ background-color: transparent;
 .projects li:hover {
     background-color: dimgrey;
 }
-.projects li a{
+.projects a {
     text-decoration: none;
     font-size: large;
     font-weight: bold;
@@ -249,4 +247,14 @@ background-color: transparent;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+}
+.container{
+    background-color: #d4e3fc;
+    justify-content: center;
+    padding-top: 20px;
+    border-radius: 5px;
+}
+.container h3 {
+
+    padding: 20px;
 }

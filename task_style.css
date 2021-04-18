@@ -115,3 +115,38 @@ h3{
     font-family: Arial;
 }
 
+
+.slist h3{
+    color: #666666;
+
+}
+
+
+.card2 {
+    box-shadow: grey;
+    text-align: center;
+width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+
+}
+.card2 li{
+
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #d4e3fc;
+    width: 80%;
+    padding: 30px;
+    float:left;
+    text-decoration: none;
+    text-align: center;
+    list-style-type: none;
+    color: #666666;
+
+}
+.card2 h3{
+    font-size: x-large;
+    text-align: center;
+}
+

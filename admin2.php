@@ -56,10 +56,10 @@
 </header>
 <?php echo "<h1 id='groupnames'>Group: $gname</h1>"?>
 <ul class="projects">
-    <li><a href="pBacklog2.php" name="link1">Product Backlog</a></li>
-    <li><a href="sPlan.php" name="link2">Sprint Planning</a></li>
-    <li><a href="sprintReview.php" name="link3">Sprint Review</a></li>
-    <li><a href="retrospective2.php" name="link4">Discussions</a></li>
+    <a href="pBacklog2.php" name="link1"><li>Product Backlog</li></a>
+    <a href="sPlan.php" name="link2"><li>Sprint Planning</li></a>
+    <a href="sprintReview.php" name="link3"><li>Sprint Review</li></a>
+    <a href="retrospective2.php" name="link4"><li>Discussions</li></a>
 </ul>
 
 <div id="mainSection">

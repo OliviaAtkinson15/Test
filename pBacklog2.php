@@ -58,13 +58,12 @@
 <a href="admin2.php"><img src="assets/arrow.png" width="40" height="40" class="return" alt="return"></a>
 
 
-<body>
+<div>
 
 
 
 <main class="container">
-
-    <div class="col-md-4 col-sm-12" id="scroll">
+    <h3>Product Backlog Items</h3>
 
         <?PHP
         //view pbi's
@@ -73,16 +72,8 @@
 
         //$result = mysqli_query($db, $sql); //execute SQL query
         $result = $db->query("SELECT * FROM product_backlog");
-        //print "<div class='card'>\n";
-        //print "<h2 class='backlogItem'></h2>";
-        //print "<p class='userStory'></p>";
-        //print "<h4 class='criteria'></h4>";
-        //print "<h4 class='effort'></h4>";
 
-        //fetch the result
-        //check
         $resultCheck = mysqli_num_rows($result);
-        print "<h3 class='PBIheader'>Product Backlog Items</h3>";
         if($resultCheck > 0) {
 
             while($row = mysqli_fetch_assoc($result)){
@@ -110,6 +101,7 @@
         $result->close();
         ?>
 </main>
+</div>
 
     <footer class="container-fluid">
         <ul class="nav justify-content-center">

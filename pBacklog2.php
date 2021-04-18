@@ -63,8 +63,52 @@
 
 
 <main class="container">
-    <h3 id="discussion">Product Backlog</h3>
 
+    <div class="col-md-4 col-sm-12" id="scroll">
+
+        <?PHP
+        //view pbi's
+        //$view = $_GET["view"];
+
+
+        //$result = mysqli_query($db, $sql); //execute SQL query
+        $result = $db->query("SELECT * FROM product_backlog");
+        //print "<div class='card'>\n";
+        //print "<h2 class='backlogItem'></h2>";
+        //print "<p class='userStory'></p>";
+        //print "<h4 class='criteria'></h4>";
+        //print "<h4 class='effort'></h4>";
+
+        //fetch the result
+        //check
+        $resultCheck = mysqli_num_rows($result);
+        print "<h3 class='PBIheader'>Product Backlog Items</h3>";
+        if($resultCheck > 0) {
+
+            while($row = mysqli_fetch_assoc($result)){
+                $pbi= $row['product_item'];
+                print "<div class=''>";
+                print "<div class='card'>";
+                //print "<p><input type=hidden name=id value=<?php echo $row['product_backlog_id']; ?//>><p>";
+                print "<h3 class='bitem'>".$pbi."</h3>";
+                print "<p class='userstory'> '<em>".$row['product_task']."</em> '</p>";
+                print "<p class='criteria'><b>Acceptance Criteria:</b> ".$row['criteria']."</p>";
+                print "<p class='effort'>".$row['effort']."</p>";
+
+                print "</div>";
+                print "</div><br>";
+
+            }// end while loop
+
+
+
+
+
+        }
+
+
+        $result->close();
+        ?>
 </main>
 
     <footer class="container-fluid">

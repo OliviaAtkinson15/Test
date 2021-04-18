@@ -59,7 +59,7 @@
     <li><a href="pBacklog2.php" name="link1">Product Backlog</a></li>
     <li><a href="sPlan.php" name="link2">Sprint Planning</a></li>
     <li><a href="sprintReview.php" name="link3">Sprint Review</a></li>
-    <li><a href="retrospective2.php" name="link4">Sprint Retrospective</a></li>
+    <li><a href="retrospective2.php" name="link4">Discussions</a></li>
 </ul>
 
 <div id="mainSection">

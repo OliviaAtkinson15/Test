@@ -67,13 +67,10 @@ if (isset($_POST['select'])) {
                     <a class="nav-link" href="pBacklog.php">Product Backlog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="try.php">Sprint Planning</a>
+                    <a class="nav-link disabled" href="sprint_planning.php">Sprint Planning</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Daily Sprint</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Chat.php">Sprint Retrospective</a>
+                    <a class="nav-link" href="Chat.php">Discussions</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Logout</a>

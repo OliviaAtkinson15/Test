@@ -77,7 +77,7 @@ include ("dbconnect.php");
                 <a class="nav-link" href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="try.php">Sprint Planning</a>
+                <a class="nav-link" href="sprint_planning.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Chat.php">Chat</a>

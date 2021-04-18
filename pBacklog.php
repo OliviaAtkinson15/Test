@@ -71,7 +71,7 @@ if (!isset($_SESSION['user'])){
                 <a class="nav-link disabled" href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="try.php">Sprint Planning</a>
+                <a class="nav-link" href="sprint_planning.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Chat.php">Chat</a>
@@ -185,8 +185,7 @@ if (!isset($_SESSION['user'])){
 
 
 
-
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 col-sm-12" id="scroll">
 
             <?PHP
             //view pbi's

@@ -46,8 +46,8 @@ include ("dbconnect.php");
                 Collaborations...</b></a>
         <?php
         session_start();
-        $email = $_SESSION['email'];
-        echo "<h5>$email</h5>";
+        $email = $_SESSION['user'];
+        echo "<h5>Hello $email</h5>";
         ?>
         <ul class="nav justify-content-center">
             <li class="nav-item">
@@ -63,7 +63,7 @@ include ("dbconnect.php");
                 <a class="nav-link" href="pBacklog.php">Product Backlog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="try.php">Sprint Planning</a>
+                <a class="nav-link" href="sprint_planning.php">Sprint Planning</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="Chat.php">Chat</a>

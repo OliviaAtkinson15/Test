@@ -1,4 +1,18 @@
 
+<!--/**
+ * Name: ILOANUGO ONYINYE
+ * StudentId: 2009808
+ * CourseCode: CMM 004
+ * Course: Software Engineering Project
+ *
+ */
+/**  THE TEAM PAGE
+ * * shows names of all team members
+ * product backlog items are collected here
+ * product backlog can be viewd here too
+ *
+ */-->
+
 <?php
 session_start();
 

@@ -1,4 +1,19 @@
 
+
+<!--/**
+ * Name: Chukwuka
+ * StudentId:
+ * CourseCode: CMM004
+ * Course: Software Engineering Project
+ *
+ */
+
+
+/**
+ * * CHAT SCRIPT
+ *
+ *
+ * -->
 <?php include("dbconnect.php");
 
 

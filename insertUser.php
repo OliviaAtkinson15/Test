@@ -63,7 +63,7 @@
         $useremail4 = $_POST["email4"];
 
         $sql = "SELECT * FROM team_users WHERE (email_address= '$email')";
-        $sql2 = "SELECT * FROM team_users WHERE (teamName = '$teamname')";
+        $sql2 = "SELECT * FROM team_users WHERE team_name = '$teamname'";
 
         $res = mysqli_query($db, $sql);
         $res2 = mysqli_query($db, $sql2);
@@ -74,7 +74,7 @@
 
         }
 
-        if(mysqli_num_rows($res2) > 0) {
+        else if(mysqli_num_rows($res2) > 0) {
 
             echo "a team with this team name already exists";
 

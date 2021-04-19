@@ -26,8 +26,7 @@ include ("dbconnect.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint Retrospective</title>
-    <link rel="stylesheet" href="pBacklog.css">
-    <link rel="stylesheet" href="style.css">
+
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
@@ -83,47 +82,7 @@ include ("dbconnect.php");
 
 <?php
 include('dbconnect.php');
-$target_dir = "uploads/";
-$fileName = basename($_FILES["file"]["name"]);
-$targetFilePath = $target_dir . $fileName;
-$uploadok = 1;
-$fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
-
-if(isset($_POST['submit'])) {
-
-    $name=  $_POST['name'];
-    $comment=  $_POST['summary'];
-    $remark=  $_POST['remark'];
-
-
-    if(empty($task)){array_push($errors,"enter task name");}
-    if(empty($name)){array_push($errors,"enter name");}
-    if(empty($comment)){array_push($errors,"field is required");
-        if(empty($remark)){array_push($errors,"field is required");}
-
-        if($_FILES["file"]["size"] > 5000000) {
-            echo"sorry,your file is too large.";
-            $uploadok = 0;
-        }
-        if($fileType !="jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "mp4" ) {
-            echo "sorry, only JPG, JPEG, PNG & mp4 files are allowed.";
-            $uploadok = 0;
-        }
-        if ($uploadok == 0){
-            echo "sorry, your file was not uploaded.";
-        } else {
-            if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
-                echo "The file has been uploaded.";
-            } else {
-                echo "sorry, there was an error uploading your file.";
-            }
-        }
-
-        $sql="INSERT INTO sprint_review(task,name,comments,remarks,file_upload) VALUES('$task','$name','$comment','$remark','$targetFilePath')";
-        mysqli_query($db,$sql);
-    }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -136,7 +95,7 @@ if(isset($_POST['submit'])) {
             background-color:#d4e3fc;
         }
         table{
-            width:60%;
+            width:100%;
             margin-right: 100px;
             border:5px dimgrey;
             border-collapse: collapse;
@@ -146,26 +105,35 @@ if(isset($_POST['submit'])) {
             border-radius: 10px;
         }
         th,td{
-            border-collapse;
-            padding-left 30px;
+
+            padding-left 10px;
             padding-top: 20px;
-            text-align: left;
             border: 1px dimgrey;
-            border-collapse: collapse;
             height: 30px;
             line-height: normal;
         }
         tr {
             border-bottom: 1px dimgrey;
             height: 20px;
-            padding: 20px;
+            padding: 5px;
         }
         th{
-            font-size: 19px;
-            color: dimgrey
+
+            font-size: 20px;
+            color: dimgrey;
+            padding-left 10px;
+            padding-top: 20px;
+            border: 1px dimgrey;
+            height: 30px;
+            line-height: normal;
+
         }
         tr:hover{
             background: #E9E9E9
+        }
+
+        form{
+            justify-content: center;
         }
     </style>
 </head>
@@ -173,11 +141,7 @@ if(isset($_POST['submit'])) {
 <div class="flex-container">
     <div class ="container"stlye="padding:20px";>
         <form method="post" action="" enctype="multipart/form-data">
-            <div class="input-group">
-                <label for="name">Name:</label>
-                <br>
-                <input type="text" id="name" name="name" value="">
-            </div>
+
             <div class="input-group">
                 <label for="name">Task name:</label>
                 <br>
@@ -189,10 +153,10 @@ if(isset($_POST['submit'])) {
             <div class="input-group">
                 <label    for="comments">summary:</label>
                 <br>
-                <textarea name="summary"id="summary" value="" style="width:300px; height:100px;"></textarea>
+                <textarea name="summary" id="summary" value="" style="width:300px; height:100px;"></textarea>
             </div>
             <br>
-            <label for="task">remark:</label>
+            <label for="task">Progress:</label>
             <select name="remark" id="task">
                 <option value="done">done</option>
                 <option value="inprogress">in progress</option>
@@ -202,25 +166,85 @@ if(isset($_POST['submit'])) {
             <button type="submit" class="btn" name="submit">submit</button>
         </form>
     </div>
+    <?php
+    $targetDir = "/Applications/MAMP/htdocs/Test/";
+    $fileName = basename($_FILES["file"]["name"]);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+    if(isset($_POST['submit'])) {
+
+
+        $comment=  $_POST['summary'];
+        $remark=  $_POST['remark'];
+        $task=  $_POST['task'];
+
+        /*  if(empty($task)){array_push($errors,"enter task name");}
+          if(empty($name)){array_push($errors,"enter name");}
+          if(empty($comment)){array_push($errors,"field is required");
+              if(empty($remark)){array_push($errors,"field is required");}*/
+
+
+        if (!empty($_FILES["file"]["name"])) {
+            if($fileType !="jpg" && $fileType != "png" && $fileType != "jpeg" && $fileType != "mp4" ) {
+                echo "sorry, only JPG, JPEG, PNG & mp4 files are allowed.";
+
+
+            }
+            else {      // Upload file to server
+                if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+                    // Insert image file name into database
+                    $insert = $db->query("INSERT into sprint_review (task,comments,remarks, file_upload) VALUES ('$task','$comment','$remark','$fileName')");
+
+                    if ($insert) {
+                        header("Refresh:0");
+                    } else {
+                        echo "Unable to add.";
+                    }
+                } else {
+                    echo "Error uploading your file.";
+                }
+            }
+
+        } else {
+            $insert = $db->query("INSERT into sprint_review (task,comments,remarks) VALUES ('$task','$comment','$remark')");
+
+            if ($insert) {
+                header("Refresh:0");
+            } else {
+                echo "Unable to add.";
+            }
+
+        }
+
+    }
+
+
+    ?>
     <div class ="container"stlye="padding:20px";>
         <table>
             <thead>
             <tr>
-                <th>Names<th>
-                <th>Task<th>
-                <th>Remark<th>
+                <th>Task</th>
+                <th>Progress</th>
+                <th>Comments</th>
+                <th>File Uploaded</th>
             </tr>
             </thead>
             <tbody>
             <?php
-            $review=mysqli_query($db, "SELECT*FROM sprint_review");
+            $review=mysqli_query($db, "SELECT * FROM sprint_review");
             $i = 1; while($row=mysqli_fetch_array($review)) {?>
                 <tr>
-                    <td><?php echo $row['name'];?></td>
                     <td><?php echo $row['task'];?></td>
                     <td><?php echo $row['remarks'];?></td>
+                    <td><?php echo $row['comments'];?></td>
                     <td>
-                        <a class="brand-text" href="view.php?id=<?php echo $row['id']?>">view</a>
+                    <?php
+                    if (!empty($row["file_upload"])) {
+                        Print '<div><img src="' . $row["file_upload"] . '" style="width:150px;"></div>';
+                    }
+                    ?>
                     <td>
                 </tr>
                 <?php $i++; } ?>
